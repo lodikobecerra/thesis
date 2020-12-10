@@ -1,0 +1,365 @@
+<title>Finished Projects</title>
+
+@include('navbar.css')
+@include('navbar.topNavbar')
+@include('navbar.sidebar')
+@include('navbar.js')
+
+
+<div class="main-content" style="min-height: 636px;">
+  <section class="section">
+    <div class="section-body">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ul class="nav nav-pills" id="myTab3" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" href="ongoing_projects">OnGoing Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="outgoing_projects">OutGoing Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="archive_projects" >Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  data-toggle="modal"
+                      data-target=".bd-example-modal-lg">Add Project</a>
+            </li>
+          </ul>
+
+          <div class="tab-pane fade show active" id="archive" role="tabpanel" aria-labelledby="archive-tab">
+                <div class="card">
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th>Project Code</th>
+                            <th>Project Name</th>
+                            <th>Progress</th>
+                            <th>Location</th>
+                            <th>Date of Completion</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>Project Alpha</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-40">
+                                </div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-20</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              2
+                            </td>
+                            <td>Project Bravo</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar width-per-60"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-04-10</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              3
+                            </td>
+                            <td>Project Charlie</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-warning width-per-70"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-29</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              4
+                            </td>
+                            <td>Project Delta</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-90"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-16</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              5
+                            </td>
+                            <td>Project Echo</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-40">
+                                </div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-20</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              6
+                            </td>
+                            <td>Project Foxtrot</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar width-per-60"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-04-10</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              7
+                            </td>
+                            <td>Project Gilbert</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-warning width-per-70"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-29</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              8
+                            </td>
+                            <td>Project Harpoon</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-90"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-16</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              9
+                            </td>
+                            <td>Project Indigo</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-40">
+                                </div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-20</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              10
+                            </td>
+                            <td>Project Johnson</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar width-per-60"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-04-10</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              11
+                            </td>
+                            <td>Project Kilua</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-warning width-per-70"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-29</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              12
+                            </td>
+                            <td>Project Lorem</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-90"></div>
+                              </div>
+                            </td>
+                            <td>Sta.Maria, Bulacan</td>
+                            <td>2018-01-16</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">View Project</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="table-1_info" role="status" aria-live="polite">Showing 1 to 10 of 12 entries
+                          
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="table-1_paginate">
+                          <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="table-1_previous"><a href="#" aria-controls="table-1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                            <li class="paginate_button page-item active"><a href="#" aria-controls="table-1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="table-1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                            <li class="paginate_button page-item next" id="table-1_next"><a href="#" aria-controls="table-1" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Large modal -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#e2e6ea;">
+          <h5 class="modal-title" id="myLargeModalLabel">Create Project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form action="/addProject" method="post" >
+          {{csrf_field() }}
+
+          
+            <div class="form-row">
+            {{-- <div class="form-group col-md-1">
+              <label>Project Code</label>
+              <input type="text" class="form-control" name="project_code" placeholder="Enter Code">
+            </div> --}}
+            <div class="form-group col-md-6">
+              <label>Project Name</label>
+              <input type="text" class="form-control" name="project_name" placeholder="Enter Project Name">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Client</label>
+              <input type="text" class="form-control" name="project_client"id="inputZip" placeholder="DPWH" disabled="">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Engineer</label>
+              <select class="form-control" name="project_engineer"  placeholder="Pleace choose an engineer">
+                <option>Engr. Liza Rowe</option>
+                <option>Engr. Juan El Caballo Loco</option>
+                <option>Engr. Elsa Jean</option>
+                <option>Engr. Jordi El Nino Pola</option>
+                <option>Engr. Leah Gotti</option>
+                <option>Engr. Jasmine Vega</option>
+                <option>Engr. Lana Rhodes</option>
+                <option>Engr. Karlee Grey</option>
+                <option>Engr. Adriana Maya</option>
+                <option>Engr. Zaya Cassidy</option>
+              </select>
+            </div>
+            
+            <div class="form-group col-md-4">
+              <label for="inputZip">Budget</label>
+              <input type="text" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated">
+            </div>
+
+            <div class="form-group col-md-4">
+              <label>Starting Date</label>
+              <input type="text" class="form-control datepicker" name="project_start_date">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Ending Date</label>
+              <input type="text" class="form-control datepicker" name="project_end_date">
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Description</label>
+              <input type="text" class="form-control" name="project_description" placeholder="Enter Project Description">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAddress2">Location</label>
+              <input type="text" class="form-control" name="project_location" placeholder="Enter Project Location">
+              <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="1234 Maint St."> -->
+            </div>
+          </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+              <button type="submit" class="btn btn-primary">Create Project</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
