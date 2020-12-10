@@ -111,7 +111,7 @@
               <label>Engineer</label>
               <select class="form-control" name="project_engineer"  placeholder="Pleace choose an engineer">
                 @foreach($teams as $team)
-                  <option>Engr. {{$team->first_name}} {{$team->last_name}}</option>
+                  <option>{{$team->employee_num}}. Engr. {{$team->first_name}} {{$team->last_name}}</option>
                 @endforeach
               </select>
             </div>

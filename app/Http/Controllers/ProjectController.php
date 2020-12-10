@@ -29,10 +29,10 @@ class ProjectController extends Controller
 	   	// DB::insert('insert into projects(project_name,project_client,project_engineer,project_budget,project_start_date,project_end_date,project_description,project_location)  values (?,?,?,?,?,?,?,?)', [$project_name, $project_client, $project_engineer, $project_budget, $project_start_date, $project_end_date, $project_description, $project_location]);
 		
 		//eloquent insert
-
+		$project_engineer_id = explode(".", $request['project_engineer']);
 		Project::create([
 			'project_name'=> $request['project_name'],
-			'project_engineer'=> $request['project_engineer'],
+			'project_engineer'=> $project_engineer_id[0],
 			'project_budget'=> $request['project_budget'],
 			'project_start_date'=> $request['project_start_date'],
 			'project_end_date'=> $request['project_end_date'],
