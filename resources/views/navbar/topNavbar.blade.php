@@ -17,8 +17,7 @@
     </li>
     <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
         class="nav-link notification-toggle nav-link-lg"><i data-feather="bell"></i>
-        <span class="badge headerBadge2">
-          3 </span> </a>
+        </a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
         <div class="dropdown-header">
           Notifications
@@ -30,8 +29,7 @@
           <a href="#" class="dropdown-item dropdown-item-unread"> <span
               class="dropdown-item-icon bg-primary text-white"> <i class="fas
 									fa-code"></i>
-            </span> <span class="dropdown-item-desc"> Template update is
-              available now! <span class="time">2 Min
+            </span> <span class="dropdown-item-desc"> Notifications here <span class="time">2 Min
                 Ago</span>
             </span>
           </a> 

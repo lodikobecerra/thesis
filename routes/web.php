@@ -1,5 +1,7 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +25,7 @@ Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name
 
 Route::middleware('auth')->group(function() {
 
+    //admin
     Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject']);
     Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing']);
     Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing']);
@@ -58,8 +61,14 @@ Route::middleware('auth')->group(function() {
     Route::post('/uploadImage' , [App\Http\Controllers\GalleryController::class, 'uploadImage']);
 
     
-    
-    
+
+    //users
+    Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing']);
+    Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects']);
+    Route::get('/myEquipment',[App\Http\Controllers\EquipmentController::class, 'myEquipment']);
+    Route::get('/myTeam',[App\Http\Controllers\TeamController::class, 'myTeam']);
+
+
     // Route::get('/resetPassword', [App\Http\Controllers\RoutesController::class, 'reset']);
 
     Route::get('/profile', [App\Http\Controllers\RoutesController::class, 'profile']);

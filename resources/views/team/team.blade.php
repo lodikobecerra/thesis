@@ -146,21 +146,22 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label>First Name</label>
-                          <input type="text" class="form-control" name="first_name">
+                          <input type="text" class="form-control" name="first_name" required>
                         </div>
                         <div class="form-group col-md-4">
                           <label>Last Name</label>
-                          <input type="text" class="form-control" name="last_name">
+                          <input type="text" class="form-control" name="last_name" required>
                         </div>
                         <div class="form-group col-md-4">
                           <label>Middle Name</label>
-                          <input type="text" class="form-control" name="middle_name">
+                          <input type="text" class="form-control" name="middle_name" required>
                         </div>
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label>Position</label>
-                          <select class="form-control" name="position">
+                          <select class="form-control" name="position" required>
+                            <option value=""disabled selected>Please select position</option>
                             <option>Engineer</option>
                             <option>Foreman</option>
                             <option>Mason</option>
@@ -172,11 +173,12 @@
                         </div>
                         <div class="form-group col-md-4">
                           <label>Age</label>
-                          <input type="text" class="form-control" name="age">
+                          <input type="text" class="form-control" name="age" required>
                         </div>
                         <div class="form-group col-md-4">
                           <label>Gender</label>
-                          <select class="form-control" name="gender">
+                          <select class="form-control" name="gender" required>
+                            <option value=""disabled selected>Select an gender</option>
                             <option>Male</option>
                             <option>Female</option>
                           </select>
@@ -185,7 +187,8 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label>Birth Month</label>
-                          <select class="form-control" name="birth_month">
+                          <select class="form-control" name="birth_month" required>
+                            <option value=""disabled selected>Select Month</option>
                             <option>January</option>
                             <option>February</option>
                             <option>March</option>
@@ -202,7 +205,8 @@
                         </div>
                         <div class="form-group col-md-4">
                           <label>Birth Day</label>
-                          <select class="form-control" name="birth_day">
+                          <select class="form-control" name="birth_day" required>
+                            <option value=""disabled selected>Select Day</option>
                             @for($i=1;$i<=31;$i++)
                             {
                               <option>{{$i}}</option>
@@ -212,7 +216,8 @@
                         </div>
                         <div class="form-group col-md-4">
                           <label>Birth Year</label>
-                          <select class="form-control" name="birth_year">
+                          <select class="form-control" name="birth_year" required>
+                            <option value=""disabled selected>Select Year</option>
                             @for($i=2020;$i>=1950;$i--)
                             {
                               <option>{{$i}}</option>
@@ -224,11 +229,11 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label>Contact Number</label>
-                          <input type="number" class="form-control" name="contact_number">
+                          <input type="number" class="form-control" name="contact_number" required>
                         </div>
                         <div class="form-group col-md-8">
                           <label for="inputAddress2">Address</label>
-                          <input type="text" class="form-control" name="address">
+                          <input type="text" class="form-control" name="address" required>
                         </div>
                       </div>
                       <div class="form-row">
@@ -250,3 +255,18 @@
       </div>
     </div>
   </div>
+
+<script>
+  $('[data-dismiss=modal]').on('click', function (e) {
+    var $t = $(this),
+        target = $t[0].href || $t.data("target") || $t.parents('.modal') || [];
+
+    $(target)
+    .find("input,textarea,select")
+        .val('')
+        .end()
+    .find("input[type=checkbox], input[type=radio]")
+        .prop("checked", "")
+        .end();
+  })
+</script>

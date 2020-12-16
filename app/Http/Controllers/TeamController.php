@@ -14,6 +14,16 @@ class TeamController extends Controller
     }
 
     public function addWorkforce(Request $request){
+
+		$request->validate([
+			'first_name' => 'required',
+			'last_name' => 'required',
+			'middle_name' => 'required',
+			'age' => 'required',
+			'contact_number' => 'required',
+			'address' => 'required',
+		]);
+
     	Team::create([
 			'first_name'=> $request['first_name'],
 			'last_name'=> $request['last_name'],
@@ -31,5 +41,9 @@ class TeamController extends Controller
 
 	   	return redirect('team')-> with('success','Project Saved');
 	}
+
+	public function myTeam(){
+    	return view('clientSide.clientsTeam');
+    }
 	
 }

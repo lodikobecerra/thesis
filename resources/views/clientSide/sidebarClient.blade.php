@@ -23,26 +23,14 @@
             </div>
           </div>
           <ul class="sidebar-menu">
-            <li><a class="nav-link" href="project"><i data-feather="list"></i><span>Project</span></a></li>
-            <li><a class="nav-link" href="equipments"><i data-feather="truck"></i><span>Equipments</span></a></li>
-            <li><a class="nav-link" href="team"><i data-feather="user"></i><span>Team</span></a></li>
-            <li><a class="nav-link" href="calendar"><i data-feather="calendar"></i><span>Calendar</span></a></li>
-            <li><a class="nav-link" href="fileManager"><i data-feather="folder"></i><span>File Manager</span></a></li>
+            <li><a class="nav-link" href="myOngoing"><i data-feather="list"></i><span>My Projects</span></a></li>
+            <li><a class="nav-link" href="myEquipment"><i data-feather="truck"></i><span>Equipments</span></a></li>
+            <li><a class="nav-link" href="myTeam"><i data-feather="user"></i><span>Team</span></a></li>
+            {{-- <li><a class="nav-link" href="calendar"><i data-feather="calendar"></i><span>Calendar</span></a></li>
+            <li><a class="nav-link" href="fileManager"><i data-feather="folder"></i><span>File Manager</span></a></li> --}}
             <li><a class="nav-link" href="gallery"><i data-feather="image"></i><span>Gallery</span></a></li>
-            <li><a class="nav-link" href="resetPassword"><i data-feather="user-check"></i><span>Reset Password</span></a></li>
+            {{-- <li><a class="nav-link" href="resetPassword"><i data-feather="user-check"></i><span>Reset Password</span></a></li> --}}
           </ul>
         </aside>
       </div>
     </body>
-
-
-      
-      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script type="text/javascript"> 
-        $(document).on('click', 'ul li', function(){
-          $(this).addclass('active').siblings().removeClass('active')
-        })
-      </script>
-      </html>
-
-      @yield('content')

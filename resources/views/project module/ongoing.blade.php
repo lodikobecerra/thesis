@@ -22,7 +22,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link"  data-toggle="modal"
-                      data-target=".bd-example-modal-lg">Add Project</a>
+                data-target=".bd-example-modal-lg">Add Project</a>
             </li>
           </ul>
 
@@ -40,7 +40,7 @@
                         <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                         <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
                           <a class="dropdown-item" href="p-gantt.html">Edit</a>
-                          <a class="dropdown-item" href="blank.html">Manage Project</a>
+                          <a class="dropdown-item" href="manageProjects">Manage Project</a>
                           <a class="dropdown-item" href="p-gantt.html">Gantt chart</a>
                         </div>
                       </div>
@@ -91,64 +91,80 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/addProject" method="post" >
-          {{csrf_field() }}
+          <form action="/addProject" method="post" >
+            {{csrf_field() }}
 
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Project Name</label>
+                <input type="text" class="form-control" name="project_name" placeholder="Enter Project Name" required>
+                
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Client</label>
+                <input type="text" class="form-control" name="project_client"id="inputZip" placeholder="DPWH" disabled="">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Engineer</label>
+                <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
+                  <option value=""disabled selected>Please select an engineer</option>
+                  @foreach($teams as $team)
+                    <option>{{$team->employee_num}}. Engr. {{$team->first_name}} {{$team->last_name}}</option>
+                  @endforeach
+                </select>
+              </div>
+              
+              <div class="form-group col-md-4">
+                <label for="inputZip">Budget</label>
+                <input type="text" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
+                
+              </div>
+              <div class="form-group col-md-4">
+                <label>Starting Date</label>
+                <input type="text" class="form-control datepicker" name="project_start_date">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Ending Date</label>
+                <input type="text" class="form-control datepicker" name="project_end_date">
+              </div>
+            </div>
+            <br>
             <div class="form-row">
-            {{-- <div class="form-group col-md-1">
-              <label>Project Code</label>
-              <input type="text" class="form-control" name="project_code" placeholder="Enter Code">
-            </div> --}}
-            <div class="form-group col-md-6">
-              <label>Project Name</label>
-              <input type="text" class="form-control" name="project_name" placeholder="Enter Project Name">
+              <div class="form-group col-md-6">
+                <label>Description</label>
+                <input type="text" class="form-control" name="project_description" placeholder="Enter Project Description">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Location</label>
+                <input type="text" class="form-control" name="project_location" placeholder="Enter Project Location" required>
+                
+                <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="1234 Maint St."> -->
+              </div>
             </div>
-            <div class="form-group col-md-2">
-              <label for="inputZip">Client</label>
-              <input type="text" class="form-control" name="project_client"id="inputZip" placeholder="DPWH" disabled="">
             </div>
-            <div class="form-group col-md-4">
-              <label>Engineer</label>
-              <select class="form-control" name="project_engineer"  placeholder="Pleace choose an engineer">
-                @foreach($teams as $team)
-                  <option>{{$team->employee_num}}. Engr. {{$team->first_name}} {{$team->last_name}}</option>
-                @endforeach
-              </select>
+            <div class="modal-footer bg-whitesmoke br">
+              <button type="submit" class="btn btn-primary">Create Project</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
             
-            <div class="form-group col-md-4">
-              <label for="inputZip">Budget</label>
-              <input type="text" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated">
-            </div>
-            <div class="form-group col-md-4">
-              <label>Starting Date</label>
-              <input type="text" class="form-control datepicker" name="project_start_date">
-            </div>
-            <div class="form-group col-md-4">
-              <label>Ending Date</label>
-              <input type="text" class="form-control datepicker" name="project_end_date">
-            </div>
-          </div>
-          <br>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label>Description</label>
-              <input type="text" class="form-control" name="project_description" placeholder="Enter Project Description">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputAddress2">Location</label>
-              <input type="text" class="form-control" name="project_location" placeholder="Enter Project Location">
-              <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="1234 Maint St."> -->
-            </div>
-          </div>
-          </div>
-          <div class="modal-footer bg-whitesmoke br">
-            <button type="submit" class="btn btn-primary">Create Project</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          </div>
-        </form>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $('[data-dismiss=modal]').on('click', function (e) {
+    var $t = $(this),
+        target = $t[0].href || $t.data("target") || $t.parents('.modal') || [];
+
+    $(target)
+    .find("input,textarea,select")
+        .val('')
+        .end()
+    .find("input[type=checkbox], input[type=radio]")
+        .prop("checked", "")
+        .end();
+  })
+</script>

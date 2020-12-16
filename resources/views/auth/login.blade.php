@@ -87,6 +87,10 @@
 
         <div class="auth-fluid">
             <!--Auth fluid left content -->
+            <div class="auth-fluid-right text-center">
+                 <!-- end auth-user-testimonial-->
+            </div>
+
             <div class="auth-fluid-form-box">
                 <div class="align-items-center d-flex">
                     <div class="card-body">
@@ -153,9 +157,7 @@
             <!-- end auth-fluid-form-box-->
 
             <!-- Auth fluid right content -->
-            <div class="auth-fluid-right text-center">
-                 <!-- end auth-user-testimonial-->
-            </div>
+            
             <!-- end Auth fluid right content -->
         </div>
         <!-- end auth-fluid-->

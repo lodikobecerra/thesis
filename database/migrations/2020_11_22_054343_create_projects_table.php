@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->double('project_budget');
             $table->date('project_start_date');
             $table->string('project_end_date');
-            $table->string('project_description');
+            $table->string('project_description')->nullable();
             $table->string('project_location');
             $table->timestamps();
         });

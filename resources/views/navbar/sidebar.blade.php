@@ -27,12 +27,3 @@
     </ul>
   </aside>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript"> 
-  $(document).on('click', 'ul li', function(){
-    $(this).addclass('active').siblings().removeClass('active')
-  })
-</script>
-
-@yield('content')

@@ -10,10 +10,6 @@ use App\Models\Team;
 class ProjectController extends Controller
 {
 
-    public function archive_projects(){
-    	return view('project module.archive');
-    }
-
 	public function addProject(Request $request){
 		//db direct insert
 	   	//$project_code = $request->input('project_code');
@@ -29,6 +25,13 @@ class ProjectController extends Controller
 	   	// DB::insert('insert into projects(project_name,project_client,project_engineer,project_budget,project_start_date,project_end_date,project_description,project_location)  values (?,?,?,?,?,?,?,?)', [$project_name, $project_client, $project_engineer, $project_budget, $project_start_date, $project_end_date, $project_description, $project_location]);
 		
 		//eloquent insert
+
+		$request->validate([
+			'project_name' => 'required',
+			'project_budget' => 'required',
+			'project_location' => 'required',
+		]);
+
 		$project_engineer_id = explode(".", $request['project_engineer']);
 		Project::create([
 			'project_name'=> $request['project_name'],
@@ -58,7 +61,22 @@ class ProjectController extends Controller
     public function displayOutgoing() {
 
     	return view('project module.outgoing', [
-    		'projects' => Project::where('project_code','1')->get(),
+    		'projects' => Project::where('project_code','1')->get(), 'teams'=> Team::where('position','Engineer')->get(),
     	]);
+	}
+	
+	public function archive_projects(){
+    	return view('project module.archive', [
+			'teams'=> Team::where('position','Engineer')->get()
+		]);
+	}
+	
+	public function myOngoing(){
+    	return view('clientSide.clientsOngoing');
+	}
+	
+	public function manageProjects(){
+        return view('clientSide.mngProjects');
     }
+
 }

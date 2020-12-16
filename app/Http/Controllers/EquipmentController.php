@@ -80,5 +80,9 @@ class EquipmentController extends Controller
     	return view('equipments.viewAsphalt', [
  			'equipments' => Equipment::where('type','Asphalt')->get(),
     	]);
+	}
+	
+	public function myEquipment(){
+    	return view('clientSide.clientsEquipment');
     }
 }
