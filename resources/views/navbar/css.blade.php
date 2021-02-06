@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="assets/bundles/dropzonejs/dropzone.css">
   <link href="assets/bundles/lightgallery/dist/css/lightgallery.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
+
+  <link rel="stylesheet" href="dhtmlxGantt/codebase/dhtmlxgantt.css">
+  <link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
   
 
   <!-- Template CSS -->

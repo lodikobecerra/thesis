@@ -16,6 +16,9 @@
 <script src="assets/bundles/fullcalendar/fullcalendar.min.js"></script>
 <script src="assets/bundles/lightgallery/dist/js/lightgallery-all.js"></script>
 
+<script src="dhtmlxGantt/codebase/dhtmlxgantt.js"></script>
+<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+
 
 <!-- Page Specific JS File -->
 <script src="assets/js/page/forms-advanced-forms.js"></script>
