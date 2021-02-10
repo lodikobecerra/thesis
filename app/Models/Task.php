@@ -9,7 +9,9 @@ class GanttTask extends Model
 {
     use HasFactory;
 
-    protected $table = "gantt_tasks";
-    public $primaryKey = "id";
-    public $timestamps = false;
+    protected $appends = ["open"];
+ 
+    public function getOpenAttribute(){
+        return true;
+    }
 }
