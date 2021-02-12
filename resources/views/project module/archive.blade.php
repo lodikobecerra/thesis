@@ -307,8 +307,8 @@
                 <label>Engineer</label>
                 <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
-                  @foreach($teams as $team)
-                    <option>{{$team->employee_num}}. Engr. {{$team->first_name}} {{$team->last_name}}</option>
+                  @foreach($users as $user)
+                    <option>{{$user->id}}. Engr. {{$user->first_name}} {{$user->last_name}}</option>
                   @endforeach
                 </select>
               </div>

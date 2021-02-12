@@ -9,35 +9,20 @@
     <section class="section">
         <div class="section-body">
             <div class="row">
-                
-                <div id="gantt_here" style='width:100%; height:250px;'></div>
+                <div id="gantt_here" style='width:100%; height:750px;'></div>
                 <script type="text/javascript">
-                    gantt.init("gantt_here");
                     gantt.config.date_format = "%Y-%m-%d %H:%i:%s";
  
-                    gantt.init("gantt_here");
+                    gantt.init("gantt_here", new Date(2020,1,1), new Date(2025,11,31));
  
-                    gantt.load("/api/data");   
+                    gantt.load("/api/data");  
+
+                    var dp = new gantt.dataProcessor("/api");
+
+                    dp.init(gantt);
+
+                    // dp.setTransactionMode("REST");
                 </script>
-                {{-- <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Project name</h4>
-                            <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">Add task</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h4><span class="badge badge-secondary">
-                                    Project code
-                                </span></h4>
-                            <p>This is a task detail</p>
-                        </div>
-                        <div class="card-footer text-right">
-                            <button class="btn btn-primary">Update</button>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>

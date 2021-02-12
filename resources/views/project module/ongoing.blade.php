@@ -35,13 +35,10 @@
                   <div class="card-header" style="background-color: #e2e6ea;">
                     <h4>{{$project->project_name}}</h4>
                     <div class="card-header-action">
-                      <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                       <div class="btn-group dropleft">
                         <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                         <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="p-gantt.html">Edit</a>
-                          <a class="dropdown-item" href="manageProjects">Manage Project</a>
-                          <a class="dropdown-item" href="p-gantt.html">Gantt chart</a>
+                          <a class="dropdown-item" href="manageProjects">Edit</a>
                         </div>
                       </div>
                     </div>
@@ -108,8 +105,8 @@
                 <label>Engineer</label>
                 <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
-                  @foreach($teams as $team)
-                    <option>{{$team->employee_num}}. Engr. {{$team->first_name}} {{$team->last_name}}</option>
+                  @foreach($users as $user)
+                    <option>{{$user->id}}. Engr. {{$user->firstName}} {{$user->lastName}}</option>
                   @endforeach
                 </select>
               </div>

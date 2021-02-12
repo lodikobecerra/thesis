@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Project;
-use App\Models\Team;
+use App\Models\User;
 
 class ProjectController extends Controller
 {
@@ -53,7 +53,7 @@ class ProjectController extends Controller
 	public function displayOngoing() {
 
     	return view('project module.ongoing', [
- 			'projects' => Project::all(), 'teams'=> Team::where('position','Engineer')->get(),
+ 			'projects' => Project::all(), 'users'=> User::where('user_type','Engineer')->get(),
 		]);
 
     }
@@ -61,13 +61,13 @@ class ProjectController extends Controller
     public function displayOutgoing() {
 
     	return view('project module.outgoing', [
-    		'projects' => Project::where('project_code','1')->get(), 'teams'=> Team::where('position','Engineer')->get(),
+    		'projects' => Project::where('project_code','1')->get(), 'users'=> User::where('user_type','Engineer')->get(),
     	]);
 	}
 	
 	public function archive_projects(){
     	return view('project module.archive', [
-			'teams'=> Team::where('position','Engineer')->get()
+			'users	'=> User::where('user_type','Engineer')->get()
 		]);
 	}
 	
