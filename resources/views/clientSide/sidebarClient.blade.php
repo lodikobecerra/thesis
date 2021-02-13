@@ -14,12 +14,12 @@
             </a>
           </div>
           <div class="sidebar-user">
-            <div class="sidebar-user-picture">
-              <img alt="image" src="assets/rick.jpg">
+            <div class="user-name">
+              <h6>Welcome Motherfucker</h6>
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><a href="profile.html">Rick Earljohn Mariano Jumuad</a></div>
-              <div class="user-role">Engineer</div>
+              <div style="font-weight: bold">{{Auth::user()->firstName}}</div>
+              <div style="font-weight: light">{{Auth::user()->user_type}}</div>
             </div>
           </div>
           <ul class="sidebar-menu">

@@ -6,17 +6,17 @@
       </a>
     </div>
     <div class="sidebar-user">
-      <div class="sidebar-user-picture">
-        <img alt="image" src="assets/rick.jpg">
+      <div class="user-name">
+        <h6>Welcome Motherfucker</h6>
       </div>
       <div class="sidebar-user-details">
-        <div class="user-name"><a href="profile">Rick Earljohn Mariano Jumuad</a></div>
-        <div class="user-role">Engineer</div>
+        <div style="font-weight: bold">{{Auth::user()->firstName}}</div>
+        <div style="font-weight: light">{{Auth::user()->user_type}}</div>
       </div>
     </div>
     <ul class="sidebar-menu">
-      <li><a class="nav-link" href="dashboard"><i data-feather="file"></i><span>Dashboard</span></a></li>
-      <li><a class="nav-link" href="ongoing_projects"><i data-feather="list"></i><span>Project</span></a></li>
+      <li><a class="nav-link" href="home"><i data-feather="file"></i><span>Dashboard</span></a></li>
+      <li><a class="nav-link" href="ongoing_projects"><i data-feather="list"></i><span>Projects</span></a></li>
       <li><a class="nav-link" href="trucks"><i data-feather="truck"></i><span>Equipments</span></a></li>
       <li><a class="nav-link" href="team"><i data-feather="user"></i><span>Team</span></a></li>
       <li><a class="nav-link" href="calendar"><i data-feather="calendar"></i><span>Calendar</span></a></li>

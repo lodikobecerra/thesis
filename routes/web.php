@@ -20,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\RoutesController::class, 'login']);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('dashboardClient');
 
 Route::middleware('auth')->group(function() {
 
     //admin
     Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject']);
+    Route::get('/send', [App\Http\Controllers\ProjectController::class, 'addProject']);
     Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing']);
     Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing']);
     Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects']);

@@ -106,7 +106,7 @@
                 <select class="form-control" name="project_engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
                   @foreach($users as $user)
-                    <option>{{$user->id}}. Engr. {{$user->first_name}} {{$user->last_name}}</option>
+                    <option>Engr. {{$user->first_name}}</option>
                   @endforeach
                 </select>
               </div>

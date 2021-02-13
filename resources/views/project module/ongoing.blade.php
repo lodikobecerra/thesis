@@ -30,8 +30,9 @@
           <div class="tab-pane fade show active">
             <div class="row">
               <div class="col-12 col-sm-12 col-lg-6">
-                @foreach($projects as $project)
+                
                   <div class="card">
+                  @foreach($projects as $project)
                   <div class="card-header" style="background-color: #e2e6ea;">
                     <h4>{{$project->project_name}}</h4>
                     <div class="card-header-action">
@@ -67,8 +68,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                @endforeach                    
+                  @endforeach  
+                </div>              
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@
                 <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
                   @foreach($users as $user)
-                    <option>{{$user->id}}. Engr. {{$user->firstName}} {{$user->lastName}}</option>
+                    <option>Engr. {{$user->firstName}}</option>
                   @endforeach
                 </select>
               </div>

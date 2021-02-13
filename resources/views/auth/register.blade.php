@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @include('navbar.css')
-@include('navbar.topNavbar')
-@include('navbar.sidebar')
 @include('navbar.js')
 
 @section('content')

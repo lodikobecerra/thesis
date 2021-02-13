@@ -42,8 +42,8 @@
     </li>
     <div class="form-inline mr-auto">
       <ul class="navbar-nav mr-3">
-        <li><a href="logout" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-          Logout
+        <li><a href="logout" class="dropdown-item text-danger"> 
+          Logout<i class="fas fa-sign-out-alt"></i>
         </a></li>
       </ul>
     </div>

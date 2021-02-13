@@ -61,7 +61,7 @@
         width:100%
     }
     .auth-fluid-right{
-        padding:6rem 3rem;
+        /* padding:6rem 3rem; */
         -webkit-box-flex:1;
         -ms-flex:1;
         flex:1;
@@ -74,6 +74,7 @@
         border:none;
         text-align:center
     }
+    
     </style>
 </head>
     <body>
@@ -112,7 +113,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a href="pages-recoverpw-2.html" class="text-muted float-right"><small>Forgot your password?</small></a>
+                                
                                 <label for="password">{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
                                 @error('password')
@@ -122,12 +123,12 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-3">
+                            {{-- <div class="form-group mb-3">
                                 <div class="custom-control custom-checkbox">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="custom-control-label" for="checkbox-signin">{{ __('Remember Me') }}</label>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group mb-0 text-center">
                                 <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i> {{ __('Login') }} </button>
@@ -138,16 +139,14 @@
                                 @endif
                             </div>
                             <!-- social-->
-                            <div class="text-center mt-4">
-                                <p class="text-muted font-16">Sign in with</p>
-                            </div>
+                            
 
                         </form>
                         <!-- end form-->
 
                         <!-- Footer-->
                         <footer class="footer footer-alt">
-                            <p class="text-muted">Don't have an account? <a href="pages-register-2.html" class="text-muted ml-1"><b>Sign Up</b></a></p>
+                            <p class="text-muted">Don't have an account? <a href="register" class="text-muted ml-1"><b>Sign Up</b></a></p>
                         </footer>
 
                     </div> <!-- end .card-body -->
