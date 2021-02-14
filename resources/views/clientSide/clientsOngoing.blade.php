@@ -12,13 +12,10 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <ul class="nav nav-pills" id="myTab3" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" href="ongoing">OnGoing Projects</a>
+              <a class="nav-link active" href="myOngoing">OnGoing Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="outgoing">OutGoing Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="archive" >Archive</a>
+              <a class="nav-link" href="#">OutGoing Projects</a>
             </li>
           </ul>
 

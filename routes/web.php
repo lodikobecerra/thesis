@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function() {
 
     //admin
     Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject']);
-    Route::get('/send', [App\Http\Controllers\ProjectController::class, 'addProject']);
+    Route::get('send', [App\Http\Controllers\ProjectController::class, 'addProject']);
     Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing']);
     Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing']);
     Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects']);
@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function() {
 
     //users
     Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing']);
+    Route::get('/clientsNewProject',[App\Http\Controllers\ProjectController::class, 'clientsNewProject']);
     Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects']);
     Route::get('/myEquipment',[App\Http\Controllers\EquipmentController::class, 'myEquipment']);
     Route::get('/myTeam',[App\Http\Controllers\TeamController::class, 'myTeam']);
@@ -80,5 +81,9 @@ Route::middleware('auth')->group(function() {
 // Route::get('/dashboard', [App\Http\Controllers\RoutesController::class, 'dashboard']);
 
 Route::get('/register', [App\Http\Controllers\RoutesController::class, 'register']);
+
+Route::get('/markAsRead', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
 
 Auth::Routes();

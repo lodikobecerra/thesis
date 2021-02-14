@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Notification;
 use App\Models\Project;
 use App\Models\User;
-use App\Notifications\ProjectNotification;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewProject;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -22,11 +23,14 @@ class ProjectController extends Controller
 			'project_engineer' => 'required',
 		]);
 		
-		$engr = User::where('firstName', $request['project_engineer'])->get();
-		
+		// $engr = User::where('firstName', $request['project_engineer'])->get();
+		$engr_id = explode(' ',$request['project_engineer']);
+		$engr_name = explode(' ',$request['project_engineer']);
 		Project::create([
 			'project_name'=> $request['project_name'],
-			'project_engineer'=> $request['project_engineer'],
+			'project_client'=> 'DPWH',
+			'project_engineer_id'=> $engr_id[0],
+			'project_engineer'=> $engr_name[1].' '.$engr_name[2].' '.$engr_name[3],
 			'project_budget'=> $request['project_budget'],
 			'project_start_date'=> $request['project_start_date'],
 			'project_end_date'=> $request['project_end_date'],
@@ -34,14 +38,16 @@ class ProjectController extends Controller
 			'project_location'=> $request['project_location'],
 		]);
 		
-		
-		Notification::send($engr, new ProjectNotification());
-	   	return redirect('ongoing_projects')-> with('success','Project Saved');
+		$user = User::where('id', $engr_id[0])->get();
 
-	   	//Direct assignment of data
-	   	//$projects = new Projects;
-	   	//$projects->project_name = 'dsfcs';
-	   }
+		// auth()->user()->notify(new NewProject());
+		Notification::send($user, new NewProject());
+	   	return back()-> with('message','Project Saved');
+	}
+
+	 public function sendNotification(Request $request, Project $proj){
+		
+	}
 
 	public function displayOngoing() {
 
@@ -54,7 +60,7 @@ class ProjectController extends Controller
     public function displayOutgoing() {
 
     	return view('project module.outgoing', [
-    		'projects' => Project::where('project_code','1')->get(), 'users'=> User::where('user_type','Engineer')->get(),
+    		'projects' => Project::where('id','1')->get(), 'users'=> User::where('user_type','Engineer')->get(),
     	]);
 	}
 	
@@ -71,5 +77,9 @@ class ProjectController extends Controller
 	public function manageProjects(){
         return view('clientSide.mngProjects');
     }
+
+	public function clientsNewProject(){
+		return view('clientSide.clientsNewProject');
+	}
 
 }

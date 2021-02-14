@@ -46,7 +46,7 @@
                   <div class="collapse show" id="mycard-collapse">
                     <div class="card-body">
                       <h4><span class="badge badge-secondary">
-                        {{$project->project_code}}
+                        {{$project->id}}
                       </span></h4>
                       <p>{{$project->project_description}}</p>
                       <div class="form-row">

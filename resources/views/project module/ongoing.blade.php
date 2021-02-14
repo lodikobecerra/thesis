@@ -39,7 +39,7 @@
                       <div class="btn-group dropleft">
                         <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                         <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="manageProjects">Edit</a>
+                          <a class="dropdown-item" href="#">Edit</a>
                         </div>
                       </div>
                     </div>
@@ -47,7 +47,7 @@
                   <div class="collapse show" id="mycard-collapse">
                     <div class="card-body">
                       <h4><span class="badge badge-secondary">
-                        {{$project->project_code}}
+                        {{$project->id}}
                       </span></h4>
                       <p>{{$project->project_description}}</p>
                       <div class="form-row">
@@ -107,7 +107,7 @@
                 <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
                   @foreach($users as $user)
-                    <option>Engr. {{$user->firstName}}</option>
+                    <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
                   @endforeach
                 </select>
               </div>

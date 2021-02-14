@@ -12,8 +12,6 @@ class Project extends Model
 
     protected $table ='projects';
 
-    protected $primaryKey = 'project_code';
-
     protected $attributes = [
         'project_client' => 'DPWH',
     ];

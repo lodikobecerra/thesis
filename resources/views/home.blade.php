@@ -8,7 +8,7 @@
 <div class="main-content" style="min-height: 636px;">
     <section class="section">
         <div class="section-body">
-            <h1>Welcome</h1>
+           @include('gantt')
         </div>
     </section>
 </div>

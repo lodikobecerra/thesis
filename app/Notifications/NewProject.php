@@ -2,12 +2,13 @@
 
 namespace App\Notifications;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ProjectNotification extends Notification
+class NewProject extends Notification
 {
     use Queueable;
 
@@ -29,27 +30,19 @@ class ProjectNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['database'];
     }
 
-    /**
-     * Get the mail representation of the notification.
+     /**
+     * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return array
      */
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
-
-    public function toDatabase()
+    public function toDatabase($notifiable)
     {
         return [
-            'details' => 'You have a new project. See details ',
+             'data'=>'you have new project',
         ];
     }
 

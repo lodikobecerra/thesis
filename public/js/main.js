@@ -1,0 +1,3 @@
+function markNotificationsAsRead(){
+    $.get('/markAsRead');
+}
