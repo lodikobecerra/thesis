@@ -52,9 +52,13 @@
     </li>
     <div class="form-inline mr-auto">
       <ul class="navbar-nav mr-3">
-        <li><a href="logout" class="dropdown-item text-danger"> 
-          Logout<i class="fas fa-sign-out-alt"></i>
-        </a></li>
+        <li><a href="{{route('logout')}}" onclick="event.preventDefault();
+          document.getElementById('logout').submit();" class="dropdown-item text-danger"> 
+          Logout<i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        <form action="{{route('logout')}}" method="POST" style="display: none;" id="logout">
+          @csrf
+        </form>
       </ul>
     </div>
   </ul>

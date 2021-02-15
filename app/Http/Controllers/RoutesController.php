@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,9 +40,12 @@ class RoutesController extends Controller
     	return view('profile.profile');
     }
 
-    public function logout(){
-        Auth::logout();
-        return redirect('/');
+    public function logout(Request $request){
+        // Auth::logout();
+        // return redirect('/');
+        $request->session()->invalidate();
+
+        return $request->wantsJson() ? new JsonResponse([], 204) : redirect('/');
     }
     
 

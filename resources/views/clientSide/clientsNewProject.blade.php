@@ -21,7 +21,7 @@
                   <div class="col-12 col-sm-6 col-lg-6">
                     <div class="card">
                       <div class="card-header" style="background-color: #e2e6ea;">
-                        <h4>{{$project->project_name}}</h4>
+                        <h4>{{$project->project_name ?? ''}}</h4>
                         <div class="card-header-action">
                           <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                           <div class="btn-group dropleft">
@@ -35,16 +35,16 @@
                       </div>
                       <div class="collapse show" id="mycard-collapse">
                         <div class="card-body">
-                          <h4><span class="badge badge-secondary">{{$project->id}}</span></h4>
+                          <h4><span class="badge badge-secondary">{{$project->id ?? ''}}</span></h4>
                           <div class="form-row">
-                            <div class="col-md-6"><strong>Started: {{$project->project_start_date}}</strong></div>
-                            <div class="col-md-6"><strong>Engineer: {{$project->project_engineer}}</strong></div>
-                            <div class="col-md-6"><strong>Target date to be finished: {{$project->project_end_date}}</strong></div>
-                            <div class="col-md-6"><strong>Location: {{$project->project_location}}</strong></div>
+                            <div class="col-md-6"><strong>Started: {{$project->project_start_date ?? ''}}</strong></div>
+                            <div class="col-md-6"><strong>Engineer: {{$project->project_engineer ?? ''}}</strong></div>
+                            <div class="col-md-6"><strong>Target date to be finished: {{$project->project_end_date ?? ''}}</strong></div>
+                            <div class="col-md-6"><strong>Location: {{$project->project_location ?? ''}}</strong></div>
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button data-toggle="modal" data-target=".bd-example-modal-lg class="btn btn-primary">Create Team</button>
+                          <button data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary">Create Team</button>
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </div>
                       </div>
@@ -57,8 +57,7 @@
       </div>
     </div>
   </section>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header" style="background-color:#e2e6ea;">
