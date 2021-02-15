@@ -26,7 +26,7 @@ class ProjectController extends Controller
 		// $engr = User::where('firstName', $request['project_engineer'])->get();
 		$engr_id = explode(' ',$request['project_engineer']);
 		$engr_name = explode(' ',$request['project_engineer']);
-		Project::create([
+		$project = Project::create([
 			'project_name'=> $request['project_name'],
 			'project_client'=> 'DPWH',
 			'project_engineer_id'=> $engr_id[0],
@@ -38,10 +38,14 @@ class ProjectController extends Controller
 			'project_location'=> $request['project_location'],
 		]);
 		
-		$user = User::where('id', $engr_id[0])->get();
+		$user = User::find($engr_id[0]);
 
 		// auth()->user()->notify(new NewProject());
-		Notification::send($user, new NewProject());
+		$message = "New Project has been created";
+		$project_id = $project->id;
+		$creator = "{$user->firstname} {$user->lastname}";
+
+		Notification::send($user, new NewProject($message,$project_id,$creator));
 	   	return back()-> with('message','Project Saved');
 	}
 
@@ -78,8 +82,13 @@ class ProjectController extends Controller
         return view('clientSide.mngProjects');
     }
 
-	public function clientsNewProject(){
-		return view('clientSide.clientsNewProject');
+	public function clientsNewProject($notification_id,$project_id)
+	{
+		$notification = Auth::user()->notifications()->find($notification_id);
+		$notification->markAsRead();
+		$project = Project::find($project_id);
+
+		return view('clientSide.clientsNewProject',["project" => $project]);
 	}
 
 }

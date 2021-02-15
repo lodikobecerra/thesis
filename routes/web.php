@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/team', [App\Http\Controllers\RoutesController::class, 'team']);
     Route::get('/add_workforce', [App\Http\Controllers\TeamController::class, 'add_workforce']);
+    Route::get('/employeeList', [App\Http\Controllers\TeamController::class, 'employeeList']);
     Route::post('/addWorkforce', [App\Http\Controllers\TeamController::class, 'addWorkforce']);
 
 
@@ -65,7 +66,7 @@ Route::middleware('auth')->group(function() {
 
     //users
     Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing']);
-    Route::get('/clientsNewProject',[App\Http\Controllers\ProjectController::class, 'clientsNewProject']);
+    Route::get('/clientsNewProject/{notification_id}/{project_id}',[App\Http\Controllers\ProjectController::class, 'clientsNewProject']);
     Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects']);
     Route::get('/myEquipment',[App\Http\Controllers\EquipmentController::class, 'myEquipment']);
     Route::get('/myTeam',[App\Http\Controllers\TeamController::class, 'myTeam']);

@@ -3,4 +3,4 @@
 @include('clientSide.sidebarClient')
 @include('navbar.js') --}}
 
-<a href="/clientsNewProject">You have a new Project from the office. Click to see Details.</a>
+<a href="/clientsNewProject">{$notification}</a>

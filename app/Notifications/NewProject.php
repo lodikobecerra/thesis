@@ -12,14 +12,20 @@ class NewProject extends Notification
 {
     use Queueable;
 
+    protected $message;
+    protected $project_id;
+    protected $creator;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message,$project_id,$creator)
     {
-        //
+        $this->message = $message;
+        $this->project_id = $project_id;
+        $this->creator = $creator;
     }
 
     /**
@@ -42,7 +48,9 @@ class NewProject extends Notification
     public function toDatabase($notifiable)
     {
         return [
-             'data'=>'you have new project',
+             'data'=> $this->message,
+             'project_id' => $this->project_id,
+             'creator' => $this->creator,
         ];
     }
 

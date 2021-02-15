@@ -41,6 +41,12 @@ class TeamController extends Controller
 
 	   	return redirect('team')-> with('success','Project Saved');
 	}
+	
+	public function employeeList(){
+		return view('team.employeeList', [
+			'teams'=> Team::all(),
+		]);
+	}
 
 	public function myTeam(){
     	return view('clientSide.clientsTeam');

@@ -31,13 +31,12 @@
         </div>
 
         <ul class="dropdown-list-content dropdown-list-icons" role="menu">
-          <li>
-              @foreach (auth()->user()->unreadNotifications as $notification)
-                  <li>
-                    @include('notifications.newProjectNotification')
-                  </li>
-              @endforeach
-          </li>
+            @foreach (auth()->user()->notifications as $notification)
+                <li>
+                  <a href="/clientsNewProject/{{$notification->id}}/{{$notification->data['project_id']}}" style="color: {{$notification->unread() ? 'blue' : 'red'}}">{{$notification->data['data']}}</a>
+                  {{-- @include('notifications.newProjectNotification') --}}
+                </li>
+            @endforeach
         </ul>
         {{-- <div class="dropdown-list-content dropdown-list-icons">
           <a href="#" class="dropdown-item dropdown-item-unread"> <span
