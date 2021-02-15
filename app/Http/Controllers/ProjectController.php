@@ -41,9 +41,11 @@ class ProjectController extends Controller
 		$user = User::find($engr_id[0]);
 
 		// auth()->user()->notify(new NewProject());
-		$message = "New Project has been created";
+		
+		//passing of data to protected variable in construct (parameter of Notification)
+		$message = "Admin has given you a project";
 		$project_id = $project->id;
-		$creator = "{$user->firstname} {$user->lastname}";
+		$creator = "{$user->firstName} {$user->lastName}";
 
 		Notification::send($user, new NewProject($message,$project_id,$creator));
 	   	return back()-> with('message','Project Saved');

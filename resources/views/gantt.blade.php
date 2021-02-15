@@ -11,6 +11,6 @@
 
         dp.init(gantt);
 
-        // dp.setTransactionMode("REST");
+        dp.setTransactionMode("REST");
     </script>
 </div>

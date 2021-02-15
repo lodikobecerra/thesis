@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html"> <img alt="image" src="assets/img/images-18.jpg" class="header-logo" /> <br>
+      <a href="index.html"> <img alt="image" src="{{asset('assets/img/images-18.jpg')}}" class="header-logo" /> <br>
         <span class="logo-name">L.R. Tiqui Builders Inc.</span>
       </a>
     </div>
