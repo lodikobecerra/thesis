@@ -14,42 +14,44 @@
 					<div class="section-body">
 						<div class="row clearfix">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<ul class="nav nav-pills" id="myTab3" role="tablist">
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="trucks">Trucks</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="backhoeLoaders">Backhoe Loaders</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="payLoaders">Payloaders</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="bulldozers">Bulldozers</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="cementMixers">Cement Mixers</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="elfs">Elfs</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="motorPools">Motor Pools</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link active" href="batchings">Batching</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="asphalts">Asphalt</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" href="history">History</a>
-				                    </li>
-				                    <li class="nav-item">
-				                      <a class="nav-link" data-toggle="modal"
-                      data-target=".bd-example-modal-lg">Input Equipment</a>
-				                    </li>
-				                  </ul>
+								<div class="" id="myTab3" role="tablist">
+									<div class="row">
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class=" btn btn-secondary btn-rounded" href="trucks">Trucks</a>
+									  </div>
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="backhoeLoaders">Backhoe Loaders</a>
+									  </div>
+									  <div class=" col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="payLoaders">Payloaders</a>
+									  </div>
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class=" btn btn-secondary btn-rounded" href="bulldozers">Bulldozers</a>
+									  </div>
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="cementMixers">Cement Mixers</a>
+									  </div>
+									  <div class=" col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="elfs">Elfs</a>
+									  </div>
+									  <div class=" col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="motorPools">Motor Pools</a>
+									  </div>
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class=" btn btn-primary btn-rounded" href="batchings">Batching</a>
+									  </div>
+									  <div class="col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="asphalts">Asphalt</a>
+									  </div>
+									  <div class=" col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded " href="history">History</a>
+									  </div>
+									  <div class=" col-xs-12 ml-1 mb-2">
+										<a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+										  data-target=".bd-example-modal-lg">Input Equipment</a>
+									  </div>
+									</div>
+								</div>
 								
 								<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="trucks" role="tabpanel" aria-labelledby="trucks-tab">

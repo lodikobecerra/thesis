@@ -25,9 +25,16 @@
                             </div>
                         </div>
                         <div class="card-body">
+
+                            
+
                             <form action="/uploadImage" method="POST" enctype="multipart/form-data">
                             @csrf
-                                <input type="file" name="image" multiple>
+                                {{-- <div class="image-preview" id="imagePreview">
+                                    <img src="" alt="Image Preview" class="image-preview__image">
+                                    <span class="image-preview__default-text">Image Preview</span>
+                                </div> --}}
+                                <input type="file" name="image" id="image" multiple>
                                 <input type="submit" name="submit">
                             </form>
                         </div>

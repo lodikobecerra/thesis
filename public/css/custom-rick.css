@@ -1,0 +1,17 @@
+.image-preview{
+    width: 100%;
+    min-height: 250px;
+    border: 2px solid #dddddd;
+    margin-bottom: 15px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+  }
+  
+  .image-preview__image{
+    display: none;
+    width: 100%;
+  }

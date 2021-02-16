@@ -81,7 +81,9 @@ Route::middleware('auth')->group(function() {
 
 // Route::get('/dashboard', [App\Http\Controllers\RoutesController::class, 'dashboard']);
 
-Route::get('/register', [App\Http\Controllers\RoutesController::class, 'register'])->name("register");
+// Route::get('/register', [App\Http\Controllers\RoutesController::class, 'register'])->name("register");
+Route::get('/adminConfirmation', [App\Http\Controllers\AdminConfirmationController::class, 'adminConfirmation'])->name("adminConfirmation");
+Route::post('/admin_confirmed', [\App\Http\Controllers\AdminConfirmationController::class, 'adminConfirm'])->name("admin_confirmed");
 
 Route::get('/markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();

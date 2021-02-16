@@ -36,4 +36,6 @@
 <script src="{{asset('assets/js/project.js')}}"></script>
 <script src="{{asset('/ctry/js/fullcalendar.bundle.js')}}"></script>
 <script src="{{asset('/ctry/js/calendar.js')}}"></script> 
+
+<script src="{{asset('js/custom-rick.js')}}"></script>
 @yield('content')

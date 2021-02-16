@@ -30,7 +30,7 @@
                 @foreach($image as $image)
                   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" >
                     <a href="{{asset('storage/images/'.$image->image)}}" data-sub-html="Demo Description">
-                      <img class="img-responsive thumbnail" src="{{asset('storage/images/'.$image->image)}}" alt="image" style="height: 350px;">
+                      <img class="img-responsive thumbnail" src="{{asset('storage/images/'.$image->image)}}" alt="image" style="height: 350px; width:auto;">
                     </a>
                   </div>
                   @endforeach

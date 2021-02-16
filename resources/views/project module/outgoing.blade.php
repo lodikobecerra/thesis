@@ -9,36 +9,39 @@
   <section class="section">
     <div class="section-body">
       <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <ul class="nav nav-pills" id="myTab3" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" href="ongoing_projects">OnGoing Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="outgoing_projects">OutGoing Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="archive_projects" >Archive</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  data-toggle="modal"
-                      data-target=".bd-example-modal-lg">Add Project</a>
-            </li>
-          </ul>
+        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+          <div class="" id="myTab3" role="tablist">
+            <div class="row">
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class=" btn btn-secondary btn-rounded" href="ongoing_projects">OnGoing Projects</a>
+              </div>
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class="btn btn-primary btn-rounded " href="outgoing_projects">OutGoing Projects</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded " href="archive_projects" >Archive</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                  data-target=".bd-example-modal-lg">Add Project</a>
+              </div>
+            </div>
+          </div>
 
           <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active">
             <div class="row">
-              <div class="col-12 col-sm-6 col-lg-6">
-                @foreach($projects as $project)
-                  <div class="card">
+              @foreach($projects as $project)
+              <div class="col-md-6 col-sm-12">
+                <div class="card">
+
                   <div class="card-header" style="background-color: #e2e6ea;">
                     <h4>{{$project->project_name}}</h4>
                     <div class="card-header-action">
                       <div class="btn-group dropleft">
                         <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                         <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="manageProjects">Edit</a>
+                          <a class="dropdown-item" href="#">Edit</a>
                         </div>
                       </div>
                     </div>
@@ -67,10 +70,12 @@
                       </div>
                     </div>
                   </div>
+   
+                </div>              
                 </div>
-                @endforeach                    
               </div>
-            </div>
+                
+              @endforeach  
           </div>
         </div>
       </div>
@@ -106,14 +111,14 @@
                 <select class="form-control" name="project_engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
                   @foreach($users as $user)
-                    <option>Engr. {{$user->first_name}}</option>
+                    <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
                   @endforeach
                 </select>
               </div>
               
               <div class="form-group col-md-4">
                 <label for="inputZip">Budget</label>
-                <input type="text" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
+                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
                 
               </div>
               <div class="form-group col-md-4">

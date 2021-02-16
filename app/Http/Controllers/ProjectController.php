@@ -45,9 +45,9 @@ class ProjectController extends Controller
 		//passing of data to protected variable in construct (parameter of Notification)
 		$message = "Admin has given you a project";
 		$project_id = $project->id;
-		$creator = "{$user->firstName} {$user->lastName}";
+		$creator = User::findOrFail(Auth::id());
 
-		Notification::send($user, new NewProject($message,$project_id,$creator));
+		Notification::send($user, new NewProject($message,$project_id,$creator->firstName));
 	   	return back()-> with('message','Project Saved');
 	}
 
@@ -72,12 +72,14 @@ class ProjectController extends Controller
 	
 	public function archive_projects(){
     	return view('project module.archive', [
-			'users	'=> User::where('user_type','Engineer')->get()
+			'users'=> User::where('user_type','Engineer')->get()
 		]);
 	}
 	
 	public function myOngoing(){
-    	return view('clientSide.clientsOngoing');
+    	return view('clientSide.clientsOngoing', [
+			'project'=> Project::all(),
+		]);
 	}
 	
 	public function manageProjects(){

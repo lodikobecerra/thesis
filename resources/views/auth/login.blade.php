@@ -146,7 +146,7 @@
 
                         <!-- Footer-->
                         <footer class="footer footer-alt">
-                            <p class="text-muted">Don't have an account? <a href="register" class="text-muted ml-1"><b>Sign Up</b></a></p>
+                            <p class="text-muted">Don't have an account? <a href="adminConfirmation" class="text-muted ml-1"><b>Sign Up</b></a></p>
                         </footer>
 
                     </div> <!-- end .card-body -->

@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="{{asset('assets/bundles/dropzonejs/dropzone.css')}}">
   <link href="{{asset('assets/bundles/lightgallery/dist/css/lightgallery.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
+  <link rel="stylesheet" href="{{asset('css/custom-rick.css')}}">
 
-  {{-- <link rel="stylesheet" href="{{asset('dhtmlxGantt/codebase/dhtmlxgantt.css')}}"> --}}
+  <link rel="stylesheet" href="{{asset('dhtmlxGantt/codebase/dhtmlxgantt.css')}}">
   <link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
   
 

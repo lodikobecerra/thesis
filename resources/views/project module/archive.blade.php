@@ -10,22 +10,24 @@
   <section class="section">
     <div class="section-body">
       <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <ul class="nav nav-pills" id="myTab3" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" href="ongoing_projects">OnGoing Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="outgoing_projects">OutGoing Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="archive_projects" >Archive</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  data-toggle="modal"
-                      data-target=".bd-example-modal-lg">Add Project</a>
-            </li>
-          </ul>
+        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+          <div class="" id="myTab3" role="tablist">
+            <div class="row">
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class=" btn btn-secondary btn-rounded" href="ongoing_projects">OnGoing Projects</a>
+              </div>
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded " href="outgoing_projects">OutGoing Projects</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-primary btn-rounded " href="archive_projects" >Archive</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                  data-target=".bd-example-modal-lg">Add Project</a>
+              </div>
+            </div>
+          </div>
 
           <div class="tab-pane fade show active" id="archive" role="tabpanel" aria-labelledby="archive-tab">
                 <div class="card">
@@ -308,13 +310,13 @@
                 <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
                   <option value=""disabled selected>Please select an engineer</option>
                   @foreach($users as $user)
-                    <option>{{$user->id}}. Engr. {{$user->first_name}} {{$user->last_name}}</option>
+                    <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
                   @endforeach
                 </select>
               </div>
               
               <div class="form-group col-md-4">
-                <label for="inputZip">Budget</label>
+                <label for="number">Budget</label>
                 <input type="text" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
                 
               </div>
