@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function() {
     
 
     //users
-    Route::middleware("role:asd")->group(function(){
+    Route::middleware("user_type:engineer")->group(function(){
         Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing'])->name("my_ongoing");
         Route::get('/clientsNewProject/{notification_id}/{project_id}', [App\Http\Controllers\ProjectController::class, 'clientsNewProject'])->name("clients_new_project");
         Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects'])->name("manage_projects");

@@ -16,7 +16,6 @@ class EquipmentController extends Controller
     }
     
     public function addEquipment(EquipmentRequest $request){
-
     	Equipment::create([
     		'type' => $request['equipment_type'],
     		'body_number' => $request['body_number'],
