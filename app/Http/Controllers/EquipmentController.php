@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EquipmentRequest;
 use Illuminate\Http\Request;
 use App\Models\Equipment;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class EquipmentController extends Controller
 {
@@ -15,7 +15,7 @@ class EquipmentController extends Controller
     	return view('equipments.addEquipment');
     }
     
-    public function addEquipment(Request $request){
+    public function addEquipment(EquipmentRequest $request){
 
     	Equipment::create([
     		'type' => $request['equipment_type'],
