@@ -17,9 +17,12 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next,$type)
     {
-        
         if(Auth::check()){
-            Auth::user()->userType == $type ? $next($request) : abort(401,"Forbidden");
+            if(Auth::user()->user_type == $type){
+                return $next($request);
+            } 
+            
+            return abort(401,"Forbidden");
         }
     }
 }
