@@ -29,12 +29,12 @@ class LoginController extends Controller
      * @var string
      */
     protected function authenticated(Request $request, $user){
-        if(Auth::user()->user_type == 'Admin'){
+        if(Auth::user()->user_type == 'admin'){
             return redirect('/home');
         }
 
-        if(Auth::user()->user_type == 'Engineer'){
-            return redirect('/user');
+        if(Auth::user()->user_type == 'engineer'){
+            return redirect('/myOngoing');
         }
     }
 

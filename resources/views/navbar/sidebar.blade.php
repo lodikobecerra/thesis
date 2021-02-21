@@ -7,17 +7,17 @@
     </div>
     <div class="sidebar-user">
       <div class="user-name">
-        <h6>Welcome Motherfucker</h6>
+        <h6>{{Auth::user()->firstName}} {{Auth::user()->lastName}}</h6>
       </div>
       <div class="sidebar-user-details">
-        <div style="font-weight: bold">{{Auth::user()->firstName}}</div>
+        
         <div style="font-weight: light">{{Auth::user()->user_type}}</div>
       </div>
     </div>
     <ul class="sidebar-menu">
       <li><a class="nav-link" href="home"><i data-feather="file"></i><span>Dashboard</span></a></li>
       <li><a class="nav-link" href="ongoing_projects"><i data-feather="list"></i><span>Projects</span></a></li>
-      <li><a class="nav-link" href="trucks"><i data-feather="truck"></i><span>Equipments</span></a></li>
+      <li><a class="nav-link" href="equipments"><i data-feather="truck"></i><span>Equipments</span></a></li>
       <li><a class="nav-link" href="team"><i data-feather="user"></i><span>Team</span></a></li>
       <li><a class="nav-link" href="calendar"><i data-feather="calendar"></i><span>Calendar</span></a></li>
       <li><a class="nav-link" href="fileManager"><i data-feather="folder"></i><span>File Manager</span></a></li>

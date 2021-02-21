@@ -1,4 +1,4 @@
-﻿.m-l--125{margin-left:-125px}
+.m-l--125{margin-left:-125px}
 .m-t--125{margin-top:-125px}
 .m-r--125{margin-right:-125px}
 .m-b--125{margin-bottom:-125px}
@@ -1172,7 +1172,7 @@ blockquote:before{content:'"';font-size:30px;position:absolute;top:10px;left:20p
 blockquote .blockquote-footer{margin-top:10px}
 .bg-whitesmoke{background-color:#f7f9f9 !important}
 .ion{font-size:15px}
-.fas,.far,.fab,.fal{font-size:13px}
+.fas,.far,.fab,.fal{font-size: 13px;}
 #visitorMap{height:400px}
 #visitorMap2,#visitorMap3{height:350px}
 #visitorMap4{height:190px}
@@ -1245,7 +1245,7 @@ body.sidebar-gone .main-sidebar{left:-250px}
 	to{opacity:1}
 }
 .sidebar-mini .main-sidebar .logo-name{display:none}
-.sidebar-mini .main-sidebar .sidebar-user{margin:0;height:70px;padding:15px}
+.sidebar-mini .main-sidebar .sidebar-user{margin:0;height:70px;padding:15px;display: none}
 .sidebar-mini .main-sidebar .sidebar-user .sidebar-user-picture img{width:35px}
 .sidebar-mini .main-sidebar .sidebar-user .sidebar-user-details .user-name,.sidebar-mini .main-sidebar .sidebar-user .sidebar-user-details .user-role{display:none}
 .sidebar-mini .main-sidebar .sidebar-brand-sm{display:block}
@@ -1260,7 +1260,7 @@ body.sidebar-gone .main-sidebar{left:-250px}
 .sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu{position:absolute;background-color:#fff;left:65px;top:10px;width:200px;display:none;box-shadow:0 0 30px rgba(0,0,0,0.1)}
 .sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li>a:focus,.sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li.active>a,.sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li.active>a:hover{color:#6777ef}
 .sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li a{height:40px;background-color:#fff}
-.sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li a.has-dropdown:after{content:"";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px}
+.sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu li a.has-dropdown:after{content:"Ã¯â€žâ€¡";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px}
 .sidebar-mini .main-sidebar .sidebar-menu li:hover>ul.dropdown-menu{display:block !important}
 .sidebar-mini .main-sidebar .sidebar-menu li:hover>ul.dropdown-menu li:hover>a{background-color:#fcfcfd}
 .sidebar-mini .main-sidebar .sidebar-menu li:hover>ul.dropdown-menu li .dropdown-menu{left:200px;padding:0}
@@ -1290,19 +1290,19 @@ body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item.active>.nav-link:be
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item:first-child .nav-link{margin-left:0}body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item:last-child .nav-link{margin-right:0}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link{color:#868e96;font-size:13px;letter-spacing:0.3px;height:70px;padding:0;padding-left:0 !important;padding-right:0 !important;margin-left:15px;margin-right:15px;position:relative}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link.has-dropdown{margin-right:35px}
-body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link.has-dropdown:after{content:"";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px;right:-20px}
+body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link.has-dropdown:after{content:"Ã¯â€žâ€¡";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px;right:-20px}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link:before{content:" ";position:absolute;left:initial;right:initial;bottom:0;height:2px;background-color:#6777ef;transition:all 0.5s}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link span{line-height:74px}body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link i{width:30px;font-size:16px}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item>.nav-link:hover{color:#191d21 !important}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu{padding:0}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item .nav-link{color:#6c757d;font-weight:600;letter-spacing:0.3px;padding:7px !important;padding-left:20px !important;padding-right:20px !important}
-body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item .nav-link.has-dropdown:after{content:"";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px;right:15px}
+body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item .nav-link.has-dropdown:after{content:"Ã¯â€žâ€¡";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px;right:15px}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item:hover>.nav-link{background-color:#fcfcfd;color:#191d21}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item:hover>.dropdown-menu{display:block !important;top:-5px;left:200px}
 body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item.active>.nav-link,body.layout-3 .navbar.navbar-secondary .navbar-nav>.nav-item .dropdown-menu .nav-item .nav-link:focus{background-color:#6777ef;color:#fff}
 body.layout-3 .main-content{padding-left:0;padding-right:0;padding-top:170px}
 body.layout-3 .main-footer{padding-left:0;padding-right:0}
-.main-sidebar .sidebar-brand{display:inline-block;width:100%;text-align:center;height:70px;line-height:60px}
+.main-sidebar .sidebar-brand{display:inline-block;width:100%;text-align:center;height:70px;line-height:60px; margin-top: 25px}
 .main-sidebar .sidebar-brand.sidebar-brand-sm{display:none}
 .main-sidebar .sidebar-brand a{text-decoration:none;text-transform:uppercase;letter-spacing:3px;font-weight:700;font-size:23px;vertical-align:bottom;color:#000}
 .main-sidebar .sidebar-brand a .header-logo{height:25px}
@@ -1323,7 +1323,7 @@ body.layout-3 .main-footer{padding-left:0;padding-right:0}
 .main-sidebar .sidebar-menu li a span{margin-top:3px;width:100%}.main-sidebar .sidebar-menu li a:hover{background-color:#fcfcfd}
 .main-sidebar .sidebar-menu li.active a{color:#6777ef;font-weight:600;background-color:#fcfcfd}
 .main-sidebar .sidebar-menu li.active ul.dropdown-menu{background-color:#fcfcfd}
-.main-sidebar .sidebar-menu li a.has-dropdown:after{content:"";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px}
+.main-sidebar .sidebar-menu li a.has-dropdown:after{content:"Ã¯â€žâ€¡";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;top:50%;right:20px;-webkit-transform:translate(0, -50%);transform:translate(0, -50%);font-size:14px}
 .main-sidebar .sidebar-menu li.active>ul.dropdown-menu{display:block}
 .main-sidebar .sidebar-menu li.active>ul.dropdown-menu li a:hover{background-color:#fcfcfd}
 .main-sidebar .sidebar-menu li ul.dropdown-menu{padding:0;margin:0;display:none;position:static;float:none;width:100%;box-shadow:none;background-color:transparent}

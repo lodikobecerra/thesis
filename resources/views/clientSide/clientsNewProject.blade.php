@@ -2,6 +2,7 @@
 @include('navbar.topNavbar')
 @include('clientSide.sidebarClient')
 @include('navbar.js')
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
 <div class="main-content" style="min-height: 636px;">
   <section class="section">
     <div class="section-body">
@@ -9,43 +10,34 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           
           <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active col-md-offset-4" id="ongoingList" role="tabpanel" aria-labelledby="home-tab">
-                <div class="row justify-content-center">
-                  <div class="col-12 col-sm-6 col-lg-6 col-md-offset-4" style="margin-top: 12%;">
-                    <div class="card justify-content-center">
-                      <div class="card-header" style="background-color: #e2e6ea;">
-                        <h4>{{$project->project_name}}</h4>
-                        <div class="card-header-action">
-                          <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
-                          <div class="btn-group dropleft">
-                            <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
-                            <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                              <a class="dropdown-item" href="manageProjects">Manage Project</a>
-                              <a class="dropdown-item" href="p-gantt.html">Gantt chart</a>
-                            </div>
-                          </div>
+            <div class="tab-pane fade show active col-md-offset-4" id="ongoingList" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-offset-4" style="margin-top: 12%;">
+                  <div class="card justify-content-center">
+                    <div class="card-header" style="background-color: #e2e6ea;">
+                      <h4>{{$project->project_name}}</h4>
+                      
+                    </div>
+                    <div class="collapse show" id="mycard-collapse">
+                      <div class="card-body">
+                        <h4><span class="badge badge-secondary">{{$project->id}}</span></h4>
+                        <div class="form-row">
+                          <div class="col-md-6"><strong>Started: {{$project->project_start_date}}</strong></div>
+                          <div class="col-md-6"><strong>Engineer: {{$project->project_engineer}}</strong></div>
+                          <div class="col-md-6"><strong>Target date to be finished: {{$project->project_end_date}}</strong></div>
+                          <div class="col-md-6"><strong>Location: {{$project->project_location}}</strong></div>
                         </div>
                       </div>
-                      <div class="collapse show" id="mycard-collapse">
-                        <div class="card-body">
-                          <h4><span class="badge badge-secondary">{{$project->id}}</span></h4>
-                          <div class="form-row">
-                            <div class="col-md-6"><strong>Started: {{$project->project_start_date}}</strong></div>
-                            <div class="col-md-6"><strong>Engineer: {{$project->project_engineer}}</strong></div>
-                            <div class="col-md-6"><strong>Target date to be finished: {{$project->project_end_date}}</strong></div>
-                            <div class="col-md-6"><strong>Location: {{$project->project_location}}</strong></div>
-                          </div>
-                        </div>
-                        <div class="card-footer text-center">
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create Team</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        </div>
+                      <div class="card-footer text-center">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Create Team</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                       </div>
-                    </div>                        
-                  </div>
+                    </div>
+                  </div>                        
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -61,42 +53,118 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post" >
+          <form action="/employeeRequest" method="POST">
             {{csrf_field() }}
-
-            <div class="form-row">
-              <div class="form-group col md-4">
-                <label><i class="fa fas fa-plus"></i></label>
-                <div class=""><a href="#" class="btn btn-sm btn-primary">Add</a></div>
+            <button class="add_form_field btn btn-primary">Add New Field &nbsp;</button>
+            <div class="container1">
+              <div class="form-row">
+                <div class="col form-group">
+                  <label for="exampleFormControlSelect1">Equipment type</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="type[]">
+                    <option>Truck</option>
+                    <option>Backhoe</option>
+                    <option>Crane</option>
+                    <option>Loader</option>
+                    <option>Forklift</option>
+                  </select>
+                </div>
+                <div class="col form-group">
+                  <label for="exampleFormControlSelect1">Quantity</label>
+                  <select class="form-control" id="exampleFormControlSelect2" name="quantity[]">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
               </div>
-              <div class="form-group col-md-5">
-                <label>Engineer</label>
-                <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
-                  <option value=""disabled selected>Please select an engineer</option>
-                  {{-- @foreach($users as $user)
-                    <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
-                  @endforeach --}}
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label>Project Name</label>
-                <input type="text" class="form-control" name="project_name" placeholder="Enter Project Name" required>
-                
-              </div>
-              
             </div>
-            <br>
-            </div>
-            <div class="modal-footer bg-whitesmoke br">
-              <button type="submit" class="btn btn-primary">Request Number of Workers</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            </div>
+          </div>
+          <div class="modal-footer bg-whitesmoke br">
             
-          </form>
+            <button type="submit" class="btn btn-success">Send Request</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  $(document).ready(function() {
+    var max_fields = 10;
+    var wrapper = $(".container1");
+    var add_button = $(".add_form_field");
 
+    var x = 1;
+    $(add_button).click(function(e) {
+        e.preventDefault();
+        //let Random
+        if (x < max_fields) {
+            x++;
+            $(wrapper).append('<form><div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a></form>'); //add input box
+            var lakietits=$("#exampleFormControlSelect1 option:selected").text();
+            var liitetits=$("#exampleFormControlSelect2 option:selected").text();
+            console.log(lakietits,liitetits);
+        } else {
+            alert('You Reached the limits')
+        }
+    });
+    $
+
+    $(wrapper).on("click", ".delete", function(e) {
+        e.preventDefault();
+        $(this).parent('form').remove();
+        x--;
+    });
+});
+</script>
+
+
+{{-- <script>
+
+function displayValue(div_name, data){ 
+            document.getElementById(div_name).innerText += data; 
+        } 
+
+document.getElementById('generate').onclick = function() {
+ 
+ var values = ["Foreman", "Mason", "Labor", "Welder", "Paintor", "Skilled Worker", "Backhoe Operator", "Payloader Operator", "Truck Driver"];
+
+ var select = document.createElement("select");
+ select.name = "type";
+ select.id = "type"
+
+ for (const val of values) {
+   var option = document.createElement("option");
+   option.value = val;
+   option.text = val.charAt(0).toUpperCase() + val.slice(1);
+   
+  //  option.className = myClass;
+   var equipment = document.getElementsByClassName("type").value;
+   displayValue("displayValue", equipment + "\n");
+   console.log;
+
+  select.appendChild(option);
+  //  displayValue("displayValue", equipmentType + "\n");
+ }
+
+ var label = document.createElement("label");
+ label.innerHTML = "Choose Employee Type: "
+ label.htmlFor = "type";
+ label.className = "form-control";
+
+ document.getElementById("container").appendChild(label).appendChild(select);
+  
+ var textbox;
+  label.appendChild(document.createTextNode(' Quantity: '));
+  textbox = document.createElement('input');
+  textbox.type = 'number';
+  label.appendChild(textbox);
+
+  // document.getElementById('generate').appendChild(label);
+}
+</script> --}}

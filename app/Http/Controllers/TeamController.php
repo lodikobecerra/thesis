@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Team;
+use App\Models\Position;
 
 class TeamController extends Controller
 {
 
-    public function add_workforce(){
-    	return view('team.addTeam');
+	public function team(){
+    	return view('team.team',  [
+			'positions'=> Position::all()
+		]);
     }
 
     public function addWorkforce(Request $request){
@@ -39,12 +42,12 @@ class TeamController extends Controller
 			'resume_file'=> $request['resume_file'],
 		]);
 
-	   	return redirect('team')-> with('success','Project Saved');
+	   	return redirect('employeeList')-> with('success','Project Saved');
 	}
 	
 	public function employeeList(){
 		return view('team.employeeList', [
-			'teams'=> Team::all(),
+			'teams'=> Team::all(), 'positions'=> Position::all()
 		]);
 	}
 

@@ -62,8 +62,8 @@
 
                                 <div class="col-md-6">
                                     <select class="form-control" name="user_type" >
-                                        <option>Admin</option>
-                                        <option>Engineer</option>
+                                        <option>admin</option>
+                                        <option>engineer</option>
                                     </select>
                                 </div>
                             </div>

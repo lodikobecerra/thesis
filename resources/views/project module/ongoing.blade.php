@@ -22,6 +22,9 @@
                 <a class="btn btn-secondary btn-rounded " href="archive_projects" >Archive</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded " href="project_status" >Project Status</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
                 <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
                   data-target=".bd-example-modal-lg">Add Project</a>
               </div>
@@ -32,10 +35,9 @@
           <div class="tab-pane fade show active">
             <div class="row">
                 @foreach($projects as $project)
-                <div class="col-md-6 col-sm-12">
-                  <div class="card">
-
-                    <div class="card-header" style="background-color: #e2e6ea;">
+                <div class="col-md-4 col-sm-12">
+                  <div class="card card-secondary">
+                    <div class="card-header">
                       <h4>{{$project->project_name}}</h4>
                       <div class="card-header-action">
                         <div class="btn-group dropleft">
@@ -97,61 +99,57 @@
         </div>
         <div class="modal-body">
             <form action="/addProject" method="post" >
-              {{csrf_field() }}
-
-                <div class="form-row">
+            {{csrf_field() }}
+              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Project Name</label>
                   <input type="text" class="form-control" name="project_name" placeholder="Enter Project Name" required>
-                  
                 </div>
-                <div class="form-group col-md-2">
-                  <label for="inputZip">Client</label>
-                  <input type="text" class="form-control" name="project_client"id="inputZip" placeholder="DPWH" disabled="">
-                </div>
-                <div class="form-group col-md-4">
-                  <label>Engineer</label>
-                  <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
-                    <option value=""disabled selected>Please select an engineer</option>
-                    @foreach($users as $user)
-                      <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
-                    @endforeach
-                  </select>
-                </div>
-                
-                <div class="form-group col-md-4">
-                  <label for="inputZip">Budget</label>
-                  <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
-                  
-                </div>
-                <div class="form-group col-md-4">
-                  <label>Starting Date</label>
-                  <input type="text" class="form-control datepicker" name="project_start_date">
-                </div>
-                <div class="form-group col-md-4">
-                  <label>Ending Date</label>
-                  <input type="text" class="form-control datepicker" name="project_end_date">
-                </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Client</label>
+                <input type="text" class="form-control" name="project_client"id="inputZip" placeholder="DPWH" disabled="">
               </div>
-              <br>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label>Description</label>
-                  <input type="text" class="form-control" name="project_description" placeholder="Enter Project Description">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Location</label>
-                  <input type="text" class="form-control" name="project_location" placeholder="Enter Project Location" required>
-                  
-                  <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="1234 Maint St."> -->
-                </div>
-              </div>
-              </div>
-              <div class="modal-footer bg-whitesmoke br">
-                <button type="submit" class="btn btn-primary">Create Project</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <div class="form-group col-md-4">
+                <label>Engineer</label>
+                <select class="form-control" name="project_engineer" placeholder="Pleace choose an engineer" required>
+                  <option value=""disabled selected>Please select an engineer</option>
+                  @foreach($users as $user)
+                    <option>{{$user->id}} Engr. {{$user->firstName}} {{$user->lastName}}</option>
+                  @endforeach
+                </select>
               </div>
               
+              <div class="form-group col-md-4">
+                <label for="inputZip">Budget</label>
+                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Starting Date</label>
+                <input type="text" class="form-control datepicker" name="project_start_date">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Ending Date</label>
+                <input type="text" class="form-control datepicker" name="project_end_date">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Description</label>
+                <input type="text" class="form-control" name="project_description" placeholder="Enter Project Description">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Location</label>
+                <input type="text" class="form-control" name="project_location" placeholder="Enter Project Location" required>
+                
+                <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="1234 Maint St."> -->
+              </div>
+            </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+              <button type="submit" class="btn btn-success">Create Project</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
             </form>
         </div>
       </div>

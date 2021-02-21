@@ -16,41 +16,33 @@
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="" id="myTab3" role="tablist">
 									<div class="row">
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class=" btn btn-secondary btn-rounded" href="trucks">Trucks</a>
+										<div class="col-xs-12 ml-1 mb-2">
+										  <a class=" btn btn-secondary btn-rounded" href="equipments">All Equipments</a>
+										</div>
+										<div class=" col-xs-12 ml-1 mb-2">
+										  <a class="btn btn-secondary btn-rounded " href="history">History</a>
+										</div>
+										<div class=" col-xs-12 ml-1 mb-2">
+										  <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+											data-target=".bd-example-modal-lg">Input Equipment</a>
+										</div>
+										<div class="dropdown d-inline ml-auto">
+										  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Equipments Type
+										  </button>
+										  <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+											<a class="dropdown-item" href="asphalts">Asphalt</a>
+											<a class="dropdown-item" href="backhoeLoaders">Backhoe Loaders</a>
+											<a class="dropdown-item" href="batchings">Batching</a>
+											<a class="dropdown-item" href="bulldozers">Bulldozers</a>
+											<a class="dropdown-item" href="cementMixers">Cement Mixers</a>
+											<a class="dropdown-item" href="elfs">Elfs</a>
+											<a class="dropdown-item" href="motorPools">Motor Pools</a>
+											<a class="dropdown-item" href="payLoaders">Payloaders</a>
+											<a class="dropdown-item" href="trucks">Trucks</a>
+										  </div>
+										</div>
 									  </div>
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class="btn btn-primary btn-rounded " href="backhoeLoaders">Backhoe Loaders</a>
-									  </div>
-									  <div class=" col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="payLoaders">Payloaders</a>
-									  </div>
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class=" btn btn-secondary btn-rounded" href="bulldozers">Bulldozers</a>
-									  </div>
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="cementMixers">Cement Mixers</a>
-									  </div>
-									  <div class=" col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="elfs">Elfs</a>
-									  </div>
-									  <div class=" col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="motorPools">Motor Pools</a>
-									  </div>
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class=" btn btn-secondary btn-rounded" href="batchings">Batching</a>
-									  </div>
-									  <div class="col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="asphalts">Asphalt</a>
-									  </div>
-									  <div class=" col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded " href="history">History</a>
-									  </div>
-									  <div class=" col-xs-12 ml-1 mb-2">
-										<a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
-										  data-target=".bd-example-modal-lg">Input Equipment</a>
-									  </div>
-									</div>
 								</div>
 								
 								<div class="tab-content" id="myTabContent">
@@ -105,11 +97,12 @@
 						</div>
 						<div class="modal-body">
 							<form action="/addEquipment" method="post" >
-							{{csrf_field() }}
-							<div class="form-row">
-									<div class="form-group col-md-2">
-									<label>Equipment Type</label>
-									<select class="form-control" name="equipment_type"  placeholder="Pleace choose type of equipment">
+								{{csrf_field() }}
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label>Equipment Type</label>
+										<select class="form-control" name="equipment_type" required>
+										<option value=""disabled selected>Equipment type</option>
 										<option>Truck</option>
 										<option>Backhoe Loader</option>
 										<option>Payloader</option>
@@ -119,33 +112,39 @@
 										<option>Motor Pool</option>
 										<option>Batching</option>
 										<option>Asphalt</option>
-									</select>
+										</select>
 									</div>
-									<div class="form-group col-md-2">
-									<label>Body Number</label>
-									<input type="text" class="form-control" name="body_number" placeholder="Enter Body Number">
+									<div class="form-group col-md-4">
+										<label>Body Number</label>
+										<input type="text" class="form-control" name="body_number" placeholder="Enter Body Number" required>
 									</div>
-									<div class="form-group col-md-2">
-									<label>Status</label>
-									<select class="form-control" name="status"  placeholder="Pleace  choose  an engineer">
+									<div class="form-group col-md-4">
+										<label>Status</label>
+										<select class="form-control" name="status" required>
+										<option value=""disabled selected>Status</option>
 										<option>Available</option>
 										<option>Available, no Operator</option>
 										<option>On Maintainance</option>
 										<option>On Project</option>
-									</select>
+										</select>
 									</div>
-									<div class="form-group col-md-4">
-									<label>Last Project Location</label>
-									<input type="text" class="form-control" name="last_location" placeholder="Last Location of Equipment">
-									</div>
-									<div class="form-group col-md-2">
-									<label>Operator</label>
-									<input type="text" class="form-control" name="operator" placeholder="Enter Name of Operator">
-									</div>
-								<div class="card-body" style="text-align:left;">
-								<input type="submit" name="submit" class="btn btn-primary" value="Add Equipment">
 								</div>
-							</form>
+								<div class="form-row mt-3">
+									<div class="form-group col-md-6">
+									<label>Last Project Location</label>
+										<input type="text" class="form-control" name="last_location" placeholder="Last Location of Equipment" required>
+									</div>
+									<div class="form-group col-md-6">
+									<label>Operator</label>
+										<input type="text" class="form-control" name="operator" placeholder="Enter Name of Operator" required>
+									</div>
+								</div>
+							</div>
+								<div class="modal-footer bg-whitesmoke br">
+									<button type="submit" class="btn btn-success">Add</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+								</div>
+								</form>
 						</div>
 					</div>
 				</div>

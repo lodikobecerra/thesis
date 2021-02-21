@@ -7,51 +7,51 @@
 
 
 <div class="main-content" style="min-height: 636px;">
-        <section class="section">
-          <div class="section-body">
-            <div class="row clearfix">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <!-- <div class="card-body"> -->
-                  <ul class="nav nav-pills" id="myTab3" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="employeeList">List of Employees</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="modal"
-                  data-target=".bd-example-modal-lg">Add workforce</a>
-                    </li>
-                  </ul>
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <h2 class="section-title" style="text-align: center;">Project Alpha</h2>
-                      <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                          <div class="card card-info">
-                            <div class="card-body text-center ribbon">
-                              <img class="rounded-circle img-thumbnail w100" src="assets/img/users/user-1.png" alt="">
-                              <h6 class="mt-3 mb-0">Michelle Green</h6>
-                              <span>jason-porter@info.com</span>
-                              <ul class="mt-3 list-unstyled d-flex justify-content-center">
-                                <li><a class="p-3" target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="p-3" target="_blank" href="#"><i class="fa fa-slack"></i></a></li>
-                                <li><a class="p-3" target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
-                              </ul>
-                              <button class="btn btn-default btn-sm">View Profile</button>
-                              <button class="btn btn-default btn-sm">Message</button>
-                            </div>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                  </div>
-                <!-- </div> --> 
-              </div>
+  <section class="section">
+    <div class="section-body">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 ml-1 mb-2">
+              <a class=" btn btn-primary btn-rounded" href="team">Project Teams</a>
+            </div>
+            <div class="col-xs-12 ml-1 mb-2">
+              <a class="btn btn-secondary btn-rounded " href="employeeList">List of Employees</a>
+            </div>
+            <div class=" col-xs-12 ml-1 mb-2">
+              <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                data-target=".bd-example-modal-lg">Add Workforce</a>
             </div>
           </div>
-        </section>
+            
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <h2 class="section-title" style="text-align: center;">Project Alpha</h2>
+                <div class="row">
+                  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="card card-info">
+                      <div class="card-body text-center ribbon">
+                        <img class="rounded-circle img-thumbnail w100" src="assets/img/users/user-1.png" alt="">
+                        <h6 class="mt-3 mb-0">Michelle Green</h6>
+                        <span>jason-porter@info.com</span>
+                        <ul class="mt-3 list-unstyled d-flex justify-content-center">
+                          <li><a class="p-3" target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a class="p-3" target="_blank" href="#"><i class="fa fa-slack"></i></a></li>
+                          <li><a class="p-3" target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <button class="btn btn-default btn-sm">View Profile</button>
+                        <button class="btn btn-default btn-sm">Message</button>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          <!-- </div> --> 
+        </div>
+      </div>
+    </div>
+  </section>
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
           aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -84,15 +84,10 @@
                       <label>Position</label>
                       <select class="form-control" name="position" required>
                         <option value=""disabled selected>Please select position</option>
-                        <option>Foreman</option>
-                        <option>Mason</option>
-                        <option>Labor</option>
-                        <option>Welder</option>
-                        <option>Paintor</option>
-                        <option>Skilled Worker</option>
-                        <option>Backhoe Operator</option>
-                        <option>Payloader Operator</option>
-                        <option>Truck Driver</option>
+                        @foreach ($positions as $position)
+                          <option>{{$position->position}}</option>    
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group col-md-4">
                       <label>Age</label>

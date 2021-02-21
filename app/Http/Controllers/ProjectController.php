@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Team;
+use App\Models\RequestEmployee;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewProject;
 use Illuminate\Support\Facades\Auth;
@@ -75,10 +77,18 @@ class ProjectController extends Controller
 			'users'=> User::where('user_type','Engineer')->get()
 		]);
 	}
+
+	public function projectStatus() {
+
+    	return view('project module.ganttAll', [
+			'users'=> User::where('user_type','Engineer')->get(),
+		]);
+    }
 	
 	public function myOngoing(){
+		$user = Auth::id();
     	return view('clientSide.clientsOngoing', [
-			'project'=> Project::all(),
+			'projects'=> Project::where('project_engineer_id', "$user")->get(),
 		]);
 	}
 	
@@ -92,7 +102,31 @@ class ProjectController extends Controller
 		$notification->markAsRead();
 		$project = Project::find($project_id);
 
-		return view('clientSide.clientsNewProject',["project" => $project]);
+		return view('clientSide.clientsNewProject',[
+			"project" => $project]);
 	}
+	
+	public function employeeRequest(Request $request)
+	{
+
+		$type = count($request['type']);
+			for($i=0; $i<$type; $i++)
+				{
+					RequestEmployee::create([
+
+					]);
+				// 	DB::create('employee_request')->insert(
+
+				// 		// 'project_id' => //request[]$i;
+				// 		'project_id'->request('project_id')[$i],
+				// 	//employee
+				// //quantity
+
+				// 	);
+				}
+			
+	
+	}
+
 
 }

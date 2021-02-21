@@ -14,4 +14,22 @@ class Team extends Model
     protected $primaryKey = 'employee_num';
 
     protected $guarded = [];
+
+
+    public function position()
+    {
+       return $this->belongsTo(Position::class);
+
+       //oneToMany
+     
+       //hasOne -> One to One
+
+       
+    }
+    
+
+
+
+
+
 }

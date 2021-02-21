@@ -1,4 +1,4 @@
-<title>Outgoing Projects</title>
+<title>Gantt Chart</title>
 
 @include('navbar.css')
 @include('navbar.topNavbar')
@@ -16,13 +16,13 @@
                 <a class=" btn btn-secondary btn-rounded" href="ongoing_projects">OnGoing Projects</a>
               </div>
               <div class="col-xs-12 ml-1 mb-2">
-                <a class="btn btn-primary btn-rounded " href="outgoing_projects">OutGoing Projects</a>
+                <a class="btn btn-secondary btn-rounded " href="outgoing_projects">OutGoing Projects</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
                 <a class="btn btn-secondary btn-rounded " href="archive_projects" >Archive</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
-                <a class="btn btn-secondary btn-rounded " href="project_status" >Project Status</a>
+                <a class="btn btn-primary btn-rounded " href="project_status" >Project Status</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
                 <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
@@ -32,53 +32,50 @@
           </div>
 
           <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active">
-            <div class="row">
-              @foreach($projects as $project)
-              <div class="col-md-4 col-sm-12">
-                <div class="card card-warning">
-                  <div class="card-header">
-                    <h4>{{$project->project_name}}</h4>
-                    <div class="card-header-action">
-                      <div class="btn-group dropleft">
-                        <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
-                        <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="#">Edit</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="collapse show" id="mycard-collapse">
-                    <div class="card-body">
-                      <h4><span class="badge badge-secondary">
-                        {{$project->id}}
-                      </span></h4>
-                      <p>{{$project->project_description}}</p>
-                      <div class="form-row">
-                        <div class="col-md-6"><strong>Started:</strong></div>
-                        <div class="col-md-6"><p>{{$project->project_start_date}}</p></div>
-                        <div class="col-md-6"><strong>Target date to be finished:</strong></div>
-                        <div class="col-md-6"><p>{{$project->project_end_date}}</p></div>
-                        <div class="col-md-6"><strong>Engineer:</strong></div>
-                        <div class="col-md-6"><p>{{$project->project_engineer}}</p></div>
-                        <div class="col-md-6"><strong>Location:</strong></div>
-                        <div class="col-md-6"><p>{{$project->project_location}}</p></div>
-                        <div class="col-md-6"><strong>Budget:</strong></div>
-                        <div class="col-md-6"><p>{{$project->project_budget}}</p></div>
-                    </div>
-                    <div class="card-footer">
-                      <div class="progress mb-3">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0</div>
-                      </div>
-                    </div>
-                  </div>
-   
-                </div>              
+            <div class="tab-pane fade show active">
+                <div class="row">
+                    {{-- <div class="gantt_control">
+                        <script>
+                            function changeSkin(name) {
+                                var link = document.createElement("link");
+                    
+                                link.onload = function () {
+                                    gantt.resetSkin();
+                                    gantt.render();
+                                };
+                    
+                                link.rel = "stylesheet";
+                                link.type = "text/css";
+                                link.id = "skin";
+                                link.href = "../../codebase/skins/dhtmlxgantt_" + name + ".css?v=7.0.13";
+                                document.head.replaceChild(link, document.querySelector("#skin"));
+                    
+                            }
+                        </script>
+                        <button onclick="changeSkin('terrace')">Terrace</button>
+                        <button onclick="changeSkin('skyblue')">Skyblue</button>
+                        <button onclick="changeSkin('meadow')">Meadow</button>
+                        <button onclick="changeSkin('broadway')">Broadway</button>
+                        <button onclick="changeSkin('material')">Material</button>
+                        <button onclick="changeSkin('contrast_white')">High contrast light</button>
+                        <button onclick="changeSkin('contrast_black')">High contrast dark</button>
+                    </div> --}}
+                    <div id="gantt_here" style='width:100%; height:750px;'></div>
+                        <script type="text/javascript">
+                            gantt.config.date_format = "%Y-%m-%d %H:%i:%s";
+
+                            gantt.init("gantt_here", new Date(2020,1,1), new Date(2025,11,31));
+
+                            gantt.load("/api/data");  
+
+                            var dp = new gantt.dataProcessor("/api");
+
+                            dp.init(gantt);
+
+                            dp.setTransactionMode("REST");
+                        </script>
                 </div>
-              </div>
-                
-              @endforeach  
-          </div>
+            </div>
         </div>
       </div>
     </div>
@@ -172,3 +169,4 @@
         .end();
   })
 </script>
+

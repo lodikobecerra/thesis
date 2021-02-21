@@ -15,10 +15,9 @@
           </div>
           <div class="sidebar-user">
             <div class="user-name">
-              <h6>Welcome Motherfucker</h6>
+              <h6>{{Auth::user()->firstName}} {{Auth::user()->lastName}}</h6>
             </div>
             <div class="sidebar-user-details">
-              <div style="font-weight: bold">{{Auth::user()->firstName}}</div>
               <div style="font-weight: light">{{Auth::user()->user_type}}</div>
             </div>
           </div>

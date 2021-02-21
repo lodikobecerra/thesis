@@ -27,15 +27,15 @@ Route::middleware('auth')->group(function() {
     //admin
     Route::middleware('user_type:admin')->group(function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-        Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('dashboardClient');
         Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject'])->name("add_project");
         Route::get('send', [App\Http\Controllers\ProjectController::class, 'addProject']);
         Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing'])->name("ongoing_projects");
         Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing'])->name("outgoing_projects");
         Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects'])->name("archive_projects");
+        Route::get('/project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus'])->name("project_status");
 
 
-        Route::get('/equipments', [App\Http\Controllers\EquipmentController::class, 'displayTrucks']);
+        Route::get('/equipments', [App\Http\Controllers\EquipmentController::class, 'equipments']);
         Route::post('/addEquipment', [App\Http\Controllers\EquipmentController::class, 'addEquipment']);
         Route::get('/trucks', [App\Http\Controllers\EquipmentController::class, 'displayTrucks']);
         Route::get('/backhoeLoaders', [App\Http\Controllers\EquipmentController::class, 'displayBackhoe']);
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/asphalts', [App\Http\Controllers\EquipmentController::class, 'displayAsphalt']);
 
 
-        Route::get('/team', [App\Http\Controllers\RoutesController::class, 'team']);
+        Route::get('/team', [App\Http\Controllers\TeamController::class, 'team']);
         Route::get('/add_workforce', [App\Http\Controllers\TeamController::class, 'add_workforce']);
         Route::get('/employeeList', [App\Http\Controllers\TeamController::class, 'employeeList']);
         Route::post('/addWorkforce', [App\Http\Controllers\TeamController::class, 'addWorkforce']);
@@ -68,12 +68,13 @@ Route::middleware('auth')->group(function() {
     
 
     //users
-    Route::middleware("role:asd")->group(function(){
+    Route::middleware('user_type:engineer')->group(function(){
         Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing'])->name("my_ongoing");
         Route::get('/clientsNewProject/{notification_id}/{project_id}', [App\Http\Controllers\ProjectController::class, 'clientsNewProject'])->name("clients_new_project");
         Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects'])->name("manage_projects");
         Route::get('/myEquipment',[App\Http\Controllers\EquipmentController::class, 'myEquipment'])->name("my_equipment");
         Route::get('/myTeam',[App\Http\Controllers\TeamController::class, 'myTeam'])->name("my_team");
+        Route::post('/employeeRequest',[App\Http\Controllers\ProjectController::class, 'employeeRequest']);
     });
 
 

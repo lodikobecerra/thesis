@@ -7,12 +7,12 @@
   <ul class="navbar-nav navbar-right">
     <li>
       <form class="form-inline mr-auto">
-        <div class="search-element">
+        {{-- <div class="search-element">
           <input class="form-control mt-2" type="search" placeholder="Search" aria-label="Search" data-width="200">
           <button class="btn mt-2" type="submit" style="height:44px">
             <i class="fas fa-search"></i>
           </button>
-        </div>
+        </div> --}}
       </form>
     </li>
     <li class="dropdown dropdown-list-toggle" id="markAsRead" onclick="markNotificationsAsRead()">

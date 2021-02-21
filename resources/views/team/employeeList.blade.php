@@ -10,18 +10,19 @@
       <div class="section-body">
         <div class="row clearfix">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <!-- <div class="card-body"> -->
-              <ul class="nav nav-pills" id="myTab3" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link" href="team">Team</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="employeeList">List of Employees</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg">Add workforce</a>
-                </li>
-              </ul>
+            <div class="row">
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class=" btn btn-secondary btn-rounded" href="team">Project Teams</a>
+              </div>
+              <div class="col-xs-12 ml-1 mb-2">
+                <a class="btn btn-primary btn-rounded " href="employeeList">List of Employees</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                  data-target=".bd-example-modal-lg">Add Workforce</a>
+              </div>
+            </div>
+
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="trucks" role="tabpanel" aria-labelledby="trucks-tab">
                     
@@ -121,15 +122,9 @@
                   <label>Position</label>
                   <select class="form-control" name="position" required>
                     <option value=""disabled selected>Please select position</option>
-                    <option>Foreman</option>
-                    <option>Mason</option>
-                    <option>Labor</option>
-                    <option>Welder</option>
-                    <option>Paintor</option>
-                    <option>Skilled Worker</option>
-                    <option>Backhoe Operator</option>
-                    <option>Payloader Operator</option>
-                    <option>Truck Driver</option>
+                    @foreach ($positions as $position)
+                      <option>{{$position->position}}</option>    
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group col-md-4">

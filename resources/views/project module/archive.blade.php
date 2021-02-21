@@ -23,6 +23,9 @@
                 <a class="btn btn-primary btn-rounded " href="archive_projects" >Archive</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
+                <a class="btn btn-secondary btn-rounded " href="project_status" >Gantt Chart</a>
+              </div>
+              <div class=" col-xs-12 ml-1 mb-2">
                 <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
                   data-target=".bd-example-modal-lg">Add Project</a>
               </div>

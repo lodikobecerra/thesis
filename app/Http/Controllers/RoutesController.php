@@ -16,10 +16,6 @@ class RoutesController extends Controller
     	return view('dashboard');
     }
 
-    public function team(){
-    	return view('team.team');
-    }
-
     public function calendar(){
     	return view('calendar.calendar');
     }

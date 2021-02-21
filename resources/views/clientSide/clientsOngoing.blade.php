@@ -20,37 +20,39 @@
           </ul>
 
           <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="ongoingList" role="tabpanel" aria-labelledby="home-tab">
-                <div class="row">
-                  <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="card">
+            <div class="tab-pane fade show active">
+              <div class="row">
+                  @foreach($projects as $project)
+                  <div class="col-md-6 col-sm-12">
+                    <div class="card">  
                       <div class="card-header" style="background-color: #e2e6ea;">
-                        <h4>Project Alpha</h4>
+                        <h4>{{$project->project_name}}</h4>
                         <div class="card-header-action">
-                          <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                           <div class="btn-group dropleft">
                             <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                             <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                              <a class="dropdown-item" href="manageProjects">Manage Project</a>
-                              <a class="dropdown-item" href="p-gantt.html">Gantt chart</a>
+                              <a class="dropdown-item" href="#">Edit</a>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="collapse show" id="mycard-collapse">
                         <div class="card-body">
-                          <h4><span class="badge badge-secondary">AB2FNU</span></h4>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit enim minima corporis nihil tempore iusto quos nesciunt laboriosam ea sed.</p>
+                          <h4><span class="badge badge-secondary">
+                            {{$project->id}}
+                          </span></h4>
+                          <p>{{$project->project_description}}</p>
                           <div class="form-row">
                             <div class="col-md-6"><strong>Started:</strong></div>
-                            <div class="col-md-6"><p>2020-03-22</p></div>
-                            <div class="col-md-6"><strong>Engineer:</strong></div>
-                            <div class="col-md-6"><p>Jason Bovovic</p></div>
+                            <div class="col-md-6"><p>{{$project->project_start_date}}</p></div>
                             <div class="col-md-6"><strong>Target date to be finished:</strong></div>
-                            <div class="col-md-6"><p>2020-04-22</p></div>
+                            <div class="col-md-6"><p>{{$project->project_end_date}}</p></div>
+                            <div class="col-md-6"><strong>Engineer:</strong></div>
+                            <div class="col-md-6"><p>{{$project->project_engineer}}</p></div>
                             <div class="col-md-6"><strong>Location:</strong></div>
-                            <div class="col-md-6"><p>1324 Lorem St. Bagbaguin Sta. Maria Bulacan</p></div>
-                          </div>
+                            <div class="col-md-6"><p>{{$project->project_location}}</p></div>
+                            <div class="col-md-6"><strong>Budget:</strong></div>
+                            <div class="col-md-6"><p>{{$project->project_budget}}</p></div>
                         </div>
                         <div class="card-footer">
                           <div class="progress mb-3">
@@ -58,11 +60,13 @@
                           </div>
                         </div>
                       </div>
-                    </div>                        
+                    </div>              
+                    </div>
                   </div>
-                </div>
+                  @endforeach  
               </div>
             </div>
+                
         </div>
       </div>
     </div>

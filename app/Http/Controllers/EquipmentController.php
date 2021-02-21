@@ -10,12 +10,13 @@ class EquipmentController extends Controller
 {
 	//
 	
-
-    public function add_equipment(){
-    	return view('equipments.addEquipment');
-    }
+	public function equipments(){
+		return view('equipments.equipments', [
+			'equipments' => Equipment::all(),
+		]);
+	}
     
-    public function addEquipment(EquipmentRequest $request){
+    public function addEquipment(Request $request){
 
     	Equipment::create([
     		'type' => $request['equipment_type'],
@@ -25,7 +26,7 @@ class EquipmentController extends Controller
     		'operator' => $request['operator'],
     	]);
 
-    	return redirect('trucks')-> with('success','Project Saved');
+    	return redirect('equipments')-> with('success','Project Saved');
     }
 
     public function displayTrucks(Request $user){
