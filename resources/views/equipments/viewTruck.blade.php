@@ -14,6 +14,15 @@
 					<div class="section-body">
 						<div class="row clearfix">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								@if($errors->any())
+								<div class="col-sm-12 alert alert-danger">
+									<ul>
+										@foreach($errors->all() as $error)
+											<li>{{$error}}</li>
+										@endforeach
+									</ul>
+								</div>
+								@endif
 								<div class="" id="myTab3" role="tablist">
 									<div class="row">
 										<div class="col-xs-12 ml-1 mb-2">

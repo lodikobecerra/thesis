@@ -16,8 +16,12 @@ class EquipmentController extends Controller
 		]);
 	}
     
+<<<<<<< HEAD
     public function addEquipment(Request $request){
 
+=======
+    public function addEquipment(EquipmentRequest $request){
+>>>>>>> b86137df276e88b944bd73b5147fe51639bd02b5
     	Equipment::create([
     		'type' => $request['equipment_type'],
     		'body_number' => $request['body_number'],

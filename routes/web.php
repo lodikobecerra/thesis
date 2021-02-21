@@ -68,7 +68,11 @@ Route::middleware('auth')->group(function() {
     
 
     //users
+<<<<<<< HEAD
     Route::middleware('user_type:engineer')->group(function(){
+=======
+    Route::middleware("user_type:engineer")->group(function(){
+>>>>>>> b86137df276e88b944bd73b5147fe51639bd02b5
         Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing'])->name("my_ongoing");
         Route::get('/clientsNewProject/{notification_id}/{project_id}', [App\Http\Controllers\ProjectController::class, 'clientsNewProject'])->name("clients_new_project");
         Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects'])->name("manage_projects");
