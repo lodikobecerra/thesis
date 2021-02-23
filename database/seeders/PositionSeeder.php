@@ -24,7 +24,6 @@ class PositionSeeder extends Seeder
             ['id'=>7, 'position'=>'Backhoe Operator'],
             ['id'=>8, 'position'=>'Payloader Operator'],
             ['id'=>9, 'position'=>'Truck Driver'],
-            
         ]);
     }
 }

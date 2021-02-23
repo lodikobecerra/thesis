@@ -27,12 +27,13 @@ Route::middleware('auth')->group(function() {
     //admin
     Route::middleware('user_type:admin')->group(function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('dashboardClient');
         Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject'])->name("add_project");
         Route::get('send', [App\Http\Controllers\ProjectController::class, 'addProject']);
         Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing'])->name("ongoing_projects");
         Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing'])->name("outgoing_projects");
         Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects'])->name("archive_projects");
-        Route::get('/project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus'])->name("project_status");
+        Route::get('project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus']);
 
 
         Route::get('/equipments', [App\Http\Controllers\EquipmentController::class, 'equipments']);
@@ -68,11 +69,7 @@ Route::middleware('auth')->group(function() {
     
 
     //users
-<<<<<<< HEAD
-    Route::middleware('user_type:engineer')->group(function(){
-=======
     Route::middleware("user_type:engineer")->group(function(){
->>>>>>> b86137df276e88b944bd73b5147fe51639bd02b5
         Route::get('/myOngoing',[App\Http\Controllers\ProjectController::class, 'myOngoing'])->name("my_ongoing");
         Route::get('/clientsNewProject/{notification_id}/{project_id}', [App\Http\Controllers\ProjectController::class, 'clientsNewProject'])->name("clients_new_project");
         Route::get('/manageProjects', [App\Http\Controllers\ProjectController::class, 'manageProjects'])->name("manage_projects");

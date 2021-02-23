@@ -111,16 +111,10 @@
 						<div class="form-group col-md-4">
 							<label>Equipment Type</label>
 							<select class="form-control" name="equipment_type" required>
-							<option value=""disabled selected>Equipment type</option>
-							<option>Truck</option>
-							<option>Backhoe Loader</option>
-							<option>Payloader</option>
-							<option>Bulldozer</option>
-							<option>Cement Mixer</option>
-							<option>Elf</option>
-							<option>Motor Pool</option>
-							<option>Batching</option>
-							<option>Asphalt</option>
+								@foreach ($equipmentType as $type)
+								<option value=""disabled selected>Equipment type</option>
+								<option>{{$type->type}}</option>
+								@endforeach
 							</select>
 						</div>
 						<div class="form-group col-md-4">

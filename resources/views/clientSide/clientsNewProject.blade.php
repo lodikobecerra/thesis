@@ -95,7 +95,7 @@
 
 <script>
   $(document).ready(function() {
-    var max_fields = 10;
+    var max_fields = 5;
     var wrapper = $(".container1");
     var add_button = $(".add_form_field");
 
@@ -103,14 +103,15 @@
     $(add_button).click(function(e) {
         e.preventDefault();
         //let Random
+        
         if (x < max_fields) {
             x++;
-            $(wrapper).append('<form><div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a></form>'); //add input box
-            var lakietits=$("#exampleFormControlSelect1 option:selected").text();
-            var liitetits=$("#exampleFormControlSelect2 option:selected").text();
-            console.log(lakietits,liitetits);
+            $(wrapper).append('<form><div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1" name="type[]"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2" name="quantity[]"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a></form>'); //add input box
+            var type = $("#exampleFormControlSelect1 option:selected").text();
+            var qty = $("#exampleFormControlSelect2 option:selected").text();
+            console.log(type, qty);
         } else {
-            alert('You Reached the limits')
+            alert('Maximum of 5 Requests only')
         }
     });
     $

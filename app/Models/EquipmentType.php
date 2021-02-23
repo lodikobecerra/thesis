@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RequestEmployee extends Model
+class EquipmentType extends Model
 {
     use HasFactory;
 
-    protected $table = 'employee_request';
-    
+    protected $table = 'equipment_type';
+
     protected $guarded = [];
+
+    
 }

@@ -12,4 +12,10 @@ class Equipment extends Model
     protected $table ='equipments';
 
     protected $guarded = [];
+
+    public function type()
+    {
+       return $this->belongsTo(EquipmentType::class);
+
+    }
 }

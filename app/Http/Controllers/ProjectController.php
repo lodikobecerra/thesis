@@ -53,10 +53,6 @@ class ProjectController extends Controller
 	   	return back()-> with('message','Project Saved');
 	}
 
-	 public function sendNotification(Request $request, Project $proj){
-		
-	}
-
 	public function displayOngoing() {
 
     	return view('project module.ongoing', [
@@ -108,21 +104,19 @@ class ProjectController extends Controller
 	
 	public function employeeRequest(Request $request)
 	{
+		
+		$count = count($request['type']);
+		
 
-		$type = count($request['type']);
-			for($i=0; $i<$type; $i++)
+			for($i=0; $i<$count; $i++)
 				{
-					RequestEmployee::create([
+					dd($request->all());
+					
+				// 	RequestEmployee::create([
 
-					]);
-				// 	DB::create('employee_request')->insert(
+				// 	]);
 
-				// 		// 'project_id' => //request[]$i;
-				// 		'project_id'->request('project_id')[$i],
-				// 	//employee
-				// //quantity
-
-				// 	);
+				
 				}
 			
 	

@@ -67,13 +67,13 @@
 															</tr>
 														</thead>
 														<tbody>
-															@foreach($equipments as $truck)
+															@foreach($equipments as $all)
 															<tr>
-																<td><h5><span class="badge badge-secondary">{{$truck->body_number}}</span></h5></td></span>
-                                                                <td><span>{{$truck->type}}</span></td>
-																<td><span>{{$truck->status}}</span></td>
-																<td><span>{{$truck->last_location}}</span></td>
-																<td><span>{{$truck->operator}}</span></td>
+																<td><h5><span class="badge badge-secondary">{{$all->body_number}}</span></h5></td></span>
+                                                                <td><span>{{$all->type}}</span></td>
+																<td><span>{{$all->status}}</span></td>
+																<td><span>{{$all->last_location}}</span></td>
+																<td><span>{{$all->operator}}</span></td>
 																<td><a href="#" class="btn btn-primary">View Equipment</a></td>
 															</tr>
 															@endforeach
@@ -104,16 +104,10 @@
                                 <div class="form-group col-md-4">
                                     <label>Equipment Type</label>
                                     <select class="form-control" name="equipment_type" required>
-                                    <option value=""disabled selected>Equipment type</option>
-                                    <option>Truck</option>
-                                    <option>Backhoe Loader</option>
-                                    <option>Payloader</option>
-                                    <option>Bulldozer</option>
-                                    <option>Cement Mixer</option>
-                                    <option>Elf</option>
-                                    <option>Motor Pool</option>
-                                    <option>Batching</option>
-                                    <option>Asphalt</option>
+                                        @foreach ($equipmentType as $type)
+                                            <option value=""disabled selected>Equipment type</option>
+                                            <option>{{$type->type}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
