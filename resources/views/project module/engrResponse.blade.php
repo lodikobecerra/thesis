@@ -36,31 +36,34 @@
                       </div>
                     </div>
                    @elseif($notification->data["flag"] == "accepted")
-                      <div class="card justify-content-center">
-                        <div class="card-header" style="background-color: #e2e6ea;">
-                          <h4>Project Accepted</h4>
-                        </div>
-                        <div class="collapse show" id="mycard-collapse">
-                          <div class="card-body">
-                            <h5 class="mb-3" style="text-align: center">Project Information</h5>
-                            <div class="form-row">
-                              <div class="col-md-6"><strong>Project ID: {{$notification->data["project_id_accepted"]}}</strong></div>
-                              <div class="col-md-6"><strong>Accepted By: Engr. {{$notification->data["creator"]}}</strong></div>
+                      <form action="/startProject/{{$notification->data["project_id_accepted"]}}" method="POST">
+                        {{csrf_field()}}
+                        <div class="card justify-content-center">
+                          <div class="card-header" style="background-color: #e2e6ea;">
+                            <h4>Project Accepted</h4>
+                          </div>
+                          <div class="collapse show" id="mycard-collapse">
+                            <div class="card-body">
+                              <h5 class="mb-3" style="text-align: center">Project Information</h5>
+                              <div class="form-row">
+                                <div class="col-md-6"><strong>Project ID: {{$notification->data["project_id_accepted"]}}</strong></div>
+                                <div class="col-md-6"><strong>Accepted By: Engr. {{$notification->data["creator"]}}</strong></div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-6"><strong>Estimated Budget: {{$notification->data["budget"]}}</strong></div>
+                                <div class="col-md-6"><strong>Estimated Workers: {{$notification->data["worker"]}}</strong></div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-6"><strong>Date Accepted: {{$notification->created_at}}</strong></div>
+                              </div>
                             </div>
-                            <div class="form-row">
-                              <div class="col-md-6"><strong>Estimated Budget: {{$notification->data["budget"]}}</strong></div>
-                              <div class="col-md-6"><strong>Estimated Workers: {{$notification->data["worker"]}}</strong></div>
-                            </div>
-                            <div class="form-row">
-                              <div class="col-md-6"><strong>Date Accepted: {{$notification->created_at}}</strong></div>
+                            <div class="card-footer text-center">
+                              <button type="submit" class="btn btn-success">Start Project</button>
+                              <button type="button" class="btn btn-danger">Delete</button>
                             </div>
                           </div>
-                          <div class="card-footer text-center">
-                            <button type="button" class="btn btn-success">Start Project</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                          </div>
                         </div>
-                      </div>
+                      </form>
                   @endif          
                 </div>
               </div>

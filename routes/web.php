@@ -30,11 +30,14 @@ Route::middleware('auth')->group(function() {
         Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('dashboardClient');
         Route::post('/addProject', [App\Http\Controllers\ProjectController::class, 'addProject'])->name("add_project");
         Route::get('send', [App\Http\Controllers\ProjectController::class, 'addProject']);
+        Route::get('/pending_projects', [App\Http\Controllers\ProjectController::class, 'displayPending']);
         Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing'])->name("ongoing_projects");
         Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing'])->name("outgoing_projects");
         Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects'])->name("archive_projects");
         Route::get('/project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus']);
         Route::get('/engrResponse/{notification_id}', [App\Http\Controllers\ProjectController::class, 'engrResponse']);
+        Route::post('/startProject/{notification_data}', [App\Http\Controllers\ProjectController::class, 'startProject']);
+        Route::get('/moveToOutgoing/{project_id}', [App\Http\Controllers\ProjectController::class, 'moveToOutgoing']);
        
 
         Route::get('/equipments', [App\Http\Controllers\EquipmentController::class, 'equipments']);

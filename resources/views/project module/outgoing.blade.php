@@ -13,19 +13,22 @@
           <div class="" id="myTab3" role="tablist">
             <div class="row">
               <div class="col-xs-12 ml-1 mb-2">
-                <a class=" btn btn-secondary btn-rounded" href="ongoing_projects">OnGoing Projects</a>
+                <a class=" btn btn-secondary btn-rounded" href="{{url('pending_projects')}}">Pending Projects</a>
               </div>
               <div class="col-xs-12 ml-1 mb-2">
-                <a class="btn btn-primary btn-rounded " href="outgoing_projects">OutGoing Projects</a>
+                  <a class=" btn btn-secondary btn-rounded" href="{{url('ongoing_projects')}}">OnGoing Projects</a>
+              </div>
+              <div class="col-xs-12 ml-1 mb-2">
+                  <a class="btn btn-primary btn-rounded " href="{{url('outgoing_projects')}}">OutGoing Projects</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
-                <a class="btn btn-secondary btn-rounded " href="archive_projects" >Archive</a>
+                  <a class="btn btn-secondary btn-rounded " href="{{url('archive_projects')}}" >Archive</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
-                <a class="btn btn-secondary btn-rounded " href="project_status" >Project Status</a>
+                  <a class="btn btn-secondary btn-rounded " href="{{url('project_status')}}" >Project Status</a>
               </div>
               <div class=" col-xs-12 ml-1 mb-2">
-                <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                  <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
                   data-target=".bd-example-modal-lg">Add Project</a>
               </div>
             </div>
@@ -36,7 +39,7 @@
             <div class="row">
               @foreach($projects as $project)
               <div class="col-md-4 col-sm-12">
-                <div class="card card-warning">
+                <div class="card card-success">
                   <div class="card-header">
                     <h4>{{$project->project_name}}</h4>
                     <div class="card-header-action">

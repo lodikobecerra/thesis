@@ -42,6 +42,7 @@ class ProjectController extends Controller
 			'project_end_date'=> $request['project_end_date'],
 			'project_description'=> $request['project_description'],
 			'project_location'=> $request['project_location'],
+			'project_status' => 'pending',
 		]);
 		
 		$user = User::find($engr_id[0]);
@@ -56,10 +57,19 @@ class ProjectController extends Controller
 	}
 
 
+	public function displayPending() {
+
+    	return view('project module.pending', [
+ 			'projects' => Project::where('project_status','pending')->get(), 'users'=> User::where('user_type','Engineer')->get(),
+		]);
+
+    }
+
+
 	public function displayOngoing() {
 
     	return view('project module.ongoing', [
- 			'projects' => Project::all(), 'users'=> User::where('user_type','Engineer')->get(),
+ 			'projects' => Project::where('project_status','ongoing')->get(), 'users'=> User::where('user_type','Engineer')->get(),
 		]);
 
     }
@@ -68,7 +78,7 @@ class ProjectController extends Controller
     public function displayOutgoing() {
 
     	return view('project module.outgoing', [
-    		'projects' => Project::where('id','1')->get(), 'users'=> User::where('user_type','Engineer')->get(),
+    		'projects' => Project::where('project_status','outgoing')->get(), 'users'=> User::where('user_type','Engineer')->get(),
     	]);
 	}
 	
@@ -91,7 +101,7 @@ class ProjectController extends Controller
 	public function myOngoing(){
 		$user = Auth::id();
     	return view('clientSide.clientsOngoing', [
-			'projects'=> Project::where('project_engineer_id', "$user")->get(),
+			'projects'=> Project::where('project_engineer_id', "$user")->where('project_status','ongoing')->get(),
 		]);
 	}
 
@@ -104,11 +114,14 @@ class ProjectController extends Controller
 	public function clientsNewProject($notification_id,$project_id)
 	{
 		$notification = Auth::user()->notifications()->find($notification_id);
-		// $notification->markAsRead();
+		
 		$project = Project::find($project_id);
 
-		return view('clientSide.clientsNewProject',[
-			"project" => $project]);
+		if($notification){
+			$notification->markAsRead();
+			return view('clientSide.clientsNewProject',[
+				"project" => $project]);
+		}
 	}
 	
 
@@ -159,13 +172,32 @@ class ProjectController extends Controller
 	
 	public function engrResponse($notification_id){
 		$notification = Auth::user()->notifications()->find($notification_id);
-		// $notification->markAsRead();
 		// dd($notification);
 		if($notification){
 			$notification->markAsRead();
 			return view('project module.engrResponse', compact('notification'));
 		}
-		// return dd ($notification->data["data"]);
+	}
+
+
+	public function startProject(Request $request,$project_id){
+		$project= Project::find($project_id);
+		$project->update(['project_status'=>'ongoing']);
+		// dd($project->project_status);
+		
+		return view('project module.ongoing',[
+			'projects' => Project::where('project_status','ongoing')->get(), 'users'=> User::where('user_type','Engineer')->get(),
+		]);
+	}
+
+	public function moveToOutgoing($project_id){
+		$project= Project::find($project_id);
+		$project->update(['project_status'=>'outgoing']);
+		// dd($project->project_status);
+		
+		return view('project module.outgoing',[
+			'projects' => Project::where('project_status','outgoing')->get(), 'users'=> User::where('user_type','Engineer')->get(),
+		]);
 	}
 
 }

@@ -1,4 +1,4 @@
-<title>Ongoing Projects</title>
+<title>Pending Projects</title>
 
 @include('navbar.css')
 @include('navbar.topNavbar')
@@ -12,25 +12,25 @@
         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
           <div class="" id="myTab3" role="tablist">
             <div class="row">
-              <div class="col-xs-12 ml-1 mb-2">
-                <a class=" btn btn-secondary btn-rounded" href="{{url('pending_projects')}}">Pending Projects</a>
-              </div>
-              <div class="col-xs-12 ml-1 mb-2">
-                  <a class=" btn btn-primary btn-rounded" href="{{url('ongoing_projects')}}">OnGoing Projects</a>
-              </div>
-              <div class="col-xs-12 ml-1 mb-2">
-                  <a class="btn btn-secondary btn-rounded " href="{{url('outgoing_projects')}}">OutGoing Projects</a>
-              </div>
-              <div class=" col-xs-12 ml-1 mb-2">
-                  <a class="btn btn-secondary btn-rounded " href="{{url('archive_projects')}}" >Archive</a>
-              </div>
-              <div class=" col-xs-12 ml-1 mb-2">
-                  <a class="btn btn-secondary btn-rounded " href="{{url('project_status')}}" >Project Status</a>
-              </div>
-              <div class=" col-xs-12 ml-1 mb-2">
-                  <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
-                  data-target=".bd-example-modal-lg">Add Project</a>
-              </div>
+                <div class="col-xs-12 ml-1 mb-2">
+                        <a class=" btn btn-primary btn-rounded" href="{{url('pending_projects')}}">Pending Projects</a>
+                </div>
+                <div class="col-xs-12 ml-1 mb-2">
+                    <a class=" btn btn-secondary btn-rounded" href="{{url('ongoing_projects')}}">OnGoing Projects</a>
+                </div>
+                <div class="col-xs-12 ml-1 mb-2">
+                    <a class="btn btn-secondary btn-rounded " href="{{url('outgoing_projects')}}">OutGoing Projects</a>
+                </div>
+                <div class=" col-xs-12 ml-1 mb-2">
+                    <a class="btn btn-secondary btn-rounded " href="{{url('archive_projects')}}" >Archive</a>
+                </div>
+                <div class=" col-xs-12 ml-1 mb-2">
+                    <a class="btn btn-secondary btn-rounded " href="{{url('project_status')}}" >Project Status</a>
+                </div>
+                <div class=" col-xs-12 ml-1 mb-2">
+                    <a class="btn btn-secondary btn-rounded text-white"  data-toggle="modal"
+                    data-target=".bd-example-modal-lg">Add Project</a>
+                </div>
             </div>
           </div>
 
@@ -39,7 +39,7 @@
             <div class="row">
                 @foreach($projects as $project)
                 <div class="col-md-4 col-sm-12">
-                  <div class="card card-secondary">
+                  <div class="card card-warning">
                     <div class="card-header">
                       <h4>{{$project->project_name}}</h4>
                       <div class="card-header-action">
@@ -48,7 +48,6 @@
                           <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item" href="#">Edit</a>
                             <a class="dropdown-item" href="#">View Gantt Chart</a>
-                            <a class="dropdown-item" href="/moveToOutgoing/{{$project->id}}">Move to Outgoing</a>
                           </div>
                         </div>
                       </div>
