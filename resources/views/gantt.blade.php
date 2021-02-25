@@ -8,7 +8,7 @@
         gantt.load("/api/data");  
 
         var dp = new gantt.dataProcessor("/api");
-
+        
         dp.init(gantt);
 
         dp.setTransactionMode("REST");

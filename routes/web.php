@@ -33,11 +33,13 @@ Route::middleware('auth')->group(function() {
         Route::get('/ongoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOngoing'])->name("ongoing_projects");
         Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing'])->name("outgoing_projects");
         Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects'])->name("archive_projects");
-        Route::get('project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus']);
-
+        Route::get('/project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus']);
+        Route::get('/engrResponse/{notification_id}', [App\Http\Controllers\ProjectController::class, 'engrResponse']);
+       
 
         Route::get('/equipments', [App\Http\Controllers\EquipmentController::class, 'equipments']);
         Route::post('/addEquipment', [App\Http\Controllers\EquipmentController::class, 'addEquipment']);
+        Route::post('/addNewEquipmentType', [App\Http\Controllers\EquipmentController::class, 'addNewEquipmentType']);
         Route::get('/trucks', [App\Http\Controllers\EquipmentController::class, 'displayTrucks']);
         Route::get('/backhoeLoaders', [App\Http\Controllers\EquipmentController::class, 'displayBackhoe']);
         Route::get('/payLoaders', [App\Http\Controllers\EquipmentController::class, 'displayPayLoader']);
@@ -76,6 +78,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/myEquipment',[App\Http\Controllers\EquipmentController::class, 'myEquipment'])->name("my_equipment");
         Route::get('/myTeam',[App\Http\Controllers\TeamController::class, 'myTeam'])->name("my_team");
         Route::post('/employeeRequest',[App\Http\Controllers\ProjectController::class, 'employeeRequest']);
+        Route::post('/declineProject', [App\Http\Controllers\ProjectController::class, 'declineProject']);
+        Route::post('/acceptProject', [App\Http\Controllers\ProjectController::class, 'acceptProject']);
+        Route::get('send', [App\Http\Controllers\ProjectController::class, 'declineProject']);
     });
 
 

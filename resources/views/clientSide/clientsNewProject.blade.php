@@ -29,8 +29,8 @@
                         </div>
                       </div>
                       <div class="card-footer text-center">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Create Team</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#acceptModal">Accept</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#declineModal">Decline</button>
                       </div>
                     </div>
                   </div>                        
@@ -42,7 +42,76 @@
       </div>
     </div>
   </section>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+  <div class="modal fade" id="declineModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#e2e6ea;">
+          <h5 class="modal-title" id="myLargeModalLabel">Decline Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/declineProject" method="POST">
+            {{csrf_field() }}
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>Project ID</label>
+                <input type="text" class="form-control" name="project_id" value="{{$project->id}}" readonly>
+              </div>
+              <div class="form-group col-md-10">
+                <label>Reason</label>
+                <input type="text" class="form-control" name="reason" required>
+              </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#e2e6ea;">
+          <h5 class="modal-title" id="myLargeModalLabel">Propose Budget</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/acceptProject" method="POST">
+            {{csrf_field() }}
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>Project ID</label>
+                <input type="text" class="form-control" name="project_id" value="{{$project->id}}" readonly>
+              </div>
+              <div class="form-group col-md-5">
+                <label>Estimated Budget</label>
+                <input type="number" class="form-control" name="budget" required>
+              </div>
+              <div class="form-group col-md-5">
+                <label>Estimated Workers Needed</label>
+                <input type="text" class="form-control" name="worker" required>
+              </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+              <button type="submit" class="btn btn-success">Send</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
   aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -90,7 +159,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 </div>
 
 <script>
@@ -106,7 +175,7 @@
         
         if (x < max_fields) {
             x++;
-            $(wrapper).append('<form><div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1" name="type[]"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2" name="quantity[]"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a></form>'); //add input box
+            $(wrapper).append('<div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1" name="type[]"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2" name="quantity[]"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a>'); //add input box
             var type = $("#exampleFormControlSelect1 option:selected").text();
             var qty = $("#exampleFormControlSelect2 option:selected").text();
             console.log(type, qty);
@@ -130,7 +199,7 @@
 function displayValue(div_name, data){ 
             document.getElementById(div_name).innerText += data; 
         } 
-
+s 
 document.getElementById('generate').onclick = function() {
  
  var values = ["Foreman", "Mason", "Labor", "Welder", "Paintor", "Skilled Worker", "Backhoe Operator", "Payloader Operator", "Truck Driver"];

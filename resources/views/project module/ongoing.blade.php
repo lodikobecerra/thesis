@@ -44,6 +44,7 @@
                           <a href="#" data-toggle="dropdown" title="Option" style="padding-left: 8px; color: black;"><i class="fas fa-ellipsis-v"></i></a>                 
                           <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-202px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">View Gantt Chart</a>
                           </div>
                         </div>
                       </div>
@@ -66,11 +67,9 @@
                           <div class="col-md-6"><strong>Budget:</strong></div>
                           <div class="col-md-6"><p>{{$project->project_budget}}</p></div>
                       </div>
-                      <div class="card-footer">
-                        <div class="progress mb-3">
-                          <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0</div>
-                        </div>
-                      </div>
+                      {{-- <div class="card-footer" style="text-align:right">
+                        <button type="button" class="btn btn-success">Add Task</button>
+                      </div> --}}
                     </div>
      
                   </div>              
@@ -121,7 +120,7 @@
               
               <div class="form-group col-md-4">
                 <label for="inputZip">Budget</label>
-                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
+                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated">
               </div>
               <div class="form-group col-md-4">
                 <label>Starting Date</label>

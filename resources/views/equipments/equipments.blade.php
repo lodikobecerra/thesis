@@ -1,4 +1,4 @@
-<title>Trucks</title>
+<title>All Equipments</title>
 
 @include('navbar.css')
 @include('navbar.topNavbar')

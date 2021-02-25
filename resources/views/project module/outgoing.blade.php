@@ -120,7 +120,7 @@
               
               <div class="form-group col-md-4">
                 <label for="inputZip">Budget</label>
-                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated" required>
+                <input type="number" class="form-control currency" id="inputZip" name="project_budget" placeholder="Enter Budget Allocated">
                 
               </div>
               <div class="form-group col-md-4">

@@ -33,8 +33,13 @@
         <ul class="dropdown-list-content dropdown-list-icons" role="menu">
             @foreach (auth()->user()->notifications as $notification)
                 <li>
-                  <a href="/clientsNewProject/{{$notification->id}}/{{$notification->data['project_id']}}" style="color: {{$notification->unread() ? 'blue' : 'black'}}">{{$notification->data['data']}}</a>
-                  {{-- @include('notifications.newProjectNotification') --}}
+                  @if (isset($notification->data['project_id']))<a href="/clientsNewProject/{{ $notification->id }}/
+                    {{ $notification->data['project_id'] }}" 
+                    style="color: {{$notification->unread() ? 'blue' : 'black'}}">{{$notification->data['data']}}</a>
+                  @else
+                    <a href="/engrResponse/{{ $notification->id }}" 
+                    style="color: {{$notification->unread() ? 'blue' : 'black'}}">{{$notification->data['data']}}</a>
+                  @endif
                 </li>
             @endforeach
         </ul>
