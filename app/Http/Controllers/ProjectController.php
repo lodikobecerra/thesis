@@ -180,7 +180,7 @@ class ProjectController extends Controller
 	}
 
 
-	public function startProject(Request $request,$project_id){
+	public function startProject($project_id){
 		$project= Project::find($project_id);
 		$project->update(['project_status'=>'ongoing']);
 		// dd($project->project_status);

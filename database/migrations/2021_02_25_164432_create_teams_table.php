@@ -26,6 +26,8 @@ class CreateTeamsTable extends Migration
             $table->integer('birth_year');
             $table->string('contact_number');
             $table->string('address');
+            $table->string('status');
+            $table->string('current_project')->nullable();
             $table->string('resume_file')->nullable();
 
             $table->timestamps();

@@ -16,7 +16,7 @@
     </div>
     <ul class="sidebar-menu">
       <li><a class="nav-link" href="{{url('home')}}"><i data-feather="file"></i><span>Dashboard</span></a></li>
-      <li><a class="nav-link" href="{{url('ongoing_projects')}}"><i data-feather="list"></i><span>Projects</span></a></li>
+      <li><a class="nav-link" href="{{url('pending_projects')}}"><i data-feather="list"></i><span>Projects</span></a></li>
       <li><a class="nav-link" href="{{url('equipments')}}"><i data-feather="truck"></i><span>Equipments</span></a></li>
       <li><a class="nav-link" href="{{url('team')}}"><i data-feather="user"></i><span>Team</span></a></li>
       <li><a class="nav-link" href="{{url('calendar')}}"><i data-feather="calendar"></i><span>Calendar</span></a></li>

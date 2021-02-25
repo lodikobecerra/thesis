@@ -27,6 +27,7 @@ class EquipmentController extends Controller
     	]);
 
     	return redirect('equipments')-> with('success','Project Saved');
+		
     }
 
     public function displayTrucks(){

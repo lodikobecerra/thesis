@@ -58,6 +58,16 @@ Route::middleware('auth')->group(function() {
         Route::get('/add_workforce', [App\Http\Controllers\TeamController::class, 'add_workforce']);
         Route::get('/employeeList', [App\Http\Controllers\TeamController::class, 'employeeList']);
         Route::post('/addWorkforce', [App\Http\Controllers\TeamController::class, 'addWorkforce']);
+        Route::get('/getEmployeeDetails/{employee_num}', [App\Http\Controllers\TeamController::class, 'getEmployeeDetails']);
+        Route::get('/foreman', [App\Http\Controllers\TeamController::class, 'foreman']);
+        Route::get('/mason', [App\Http\Controllers\TeamController::class, 'mason']);
+        Route::get('/labor', [App\Http\Controllers\TeamController::class, 'labor']);
+        Route::get('/welder', [App\Http\Controllers\TeamController::class, 'welder']);
+        Route::get('/paintor', [App\Http\Controllers\TeamController::class, 'paintor']);
+        Route::get('/skilledWorker', [App\Http\Controllers\TeamController::class, 'skilledWorker']);
+        Route::get('/backhoeOperator', [App\Http\Controllers\TeamController::class, 'backhoeOperator']);
+        Route::get('/payLoaderOperator', [App\Http\Controllers\TeamController::class, 'payLoaderOperator']);
+        Route::get('/truckDriver', [App\Http\Controllers\TeamController::class, 'truckDriver']);
 
 
         Route::get('/calendar', [App\Http\Controllers\RoutesController::class, 'calendar']);

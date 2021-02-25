@@ -39,6 +39,7 @@ class TeamController extends Controller
 			'birth_year'=> $request['birth_year'],
 			'contact_number'=> $request['contact_number'],
 			'address'=> $request['address'],
+			'status' => 'available',
 			'resume_file'=> $request['resume_file'],
 		]);
 
@@ -47,8 +48,69 @@ class TeamController extends Controller
 	
 	public function employeeList(){
 		return view('team.employeeList', [
-			'teams'=> Team::all(), 'positions'=> Position::all()
+			'teams'=> Team::all(), 'positions'=> Position::all(),
 		]);
+	}
+
+	public function foreman(){
+		return view('team.viewForeman', [
+			'teams'=> Team::where('position','Foreman')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function mason(){
+		return view('team.viewMason', [
+			'teams'=> Team::where('position','Mason')->get(), 'positions'=> Position::all(),
+		]);
+	}
+	
+	public function labor(){
+		return view('team.viewLabor', [
+			'teams'=> Team::where('position','Labor')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function welder(){
+		return view('team.viewWelder', [
+			'teams'=> Team::where('position','Welder')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function paintor(){
+		return view('team.viewPaintor', [
+			'teams'=> Team::where('position','Paintor')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function skilledWorker(){
+		return view('team.viewSkilledWorker', [
+			'teams'=> Team::where('position','Skilled Worker')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function backhoeOperator(){
+		return view('team.viewBackhoeOperator', [
+			'teams'=> Team::where('position','Backhoe Operator')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function payloaderOperator(){
+		return view('team.viewPayloaderOperator', [
+			'teams'=> Team::where('position','Payloader Operator')->get(), 'positions'=> Position::all(),
+		]);
+	}
+	
+	public function truckDriver(){
+		return view('team.viewTruckDriver', [
+			'teams'=> Team::where('position','Truck Driver')->get(), 'positions'=> Position::all(),
+		]);
+	}
+
+	public function getEmployeeDetails($employee_num){
+		$employee = Team::find($employee_num);
+		return view('team.viewEmployee', [
+			"employee" => $employee, 'positions'=> Position::all()
+			]);
 	}
 
 	public function myTeam(){
