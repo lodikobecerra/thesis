@@ -35,8 +35,8 @@ Route::middleware('auth')->group(function() {
         Route::get('/outgoing_projects', [App\Http\Controllers\ProjectController::class, 'displayOutgoing'])->name("outgoing_projects");
         Route::get('/archive_projects', [App\Http\Controllers\ProjectController::class, 'archive_projects'])->name("archive_projects");
         Route::get('/project_status', [App\Http\Controllers\ProjectController::class, 'projectStatus']);
-        Route::get('/engrResponse/{notification_id}', [App\Http\Controllers\ProjectController::class, 'engrResponse']);
-        Route::post('/startProject/{notification_data}', [App\Http\Controllers\ProjectController::class, 'startProject']);
+        Route::get('/engrResponse/{notification_id}/{project_id_accepted}', [App\Http\Controllers\ProjectController::class, 'engrResponse']);
+        Route::post('/startProject/{notification_data}/{project_id}', [App\Http\Controllers\ProjectController::class, 'startProject']);
         Route::get('/moveToOutgoing/{project_id}', [App\Http\Controllers\ProjectController::class, 'moveToOutgoing']);
        
 

@@ -36,7 +36,7 @@
                       </div>
                     </div>
                    @elseif($notification->data["flag"] == "accepted")
-                      <form action="/startProject/{{$notification->data["project_id_accepted"]}}" method="POST">
+                      <form action="/startProject/{{$notification->id}}/{{$notification->data["project_id_accepted"]}}" method="POST">
                         {{csrf_field()}}
                         <div class="card justify-content-center">
                           <div class="card-header" style="background-color: #e2e6ea;">
@@ -58,8 +58,13 @@
                               </div>
                             </div>
                             <div class="card-footer text-center">
+                              @if ($projects->project_status == "pending")
                               <button type="submit" class="btn btn-success">Start Project</button>
                               <button type="button" class="btn btn-danger">Delete</button>
+                              @else
+                              <button type="button" class="btn btn-danger">Delete</button>
+                              @endif
+                              
                             </div>
                           </div>
                         </div>

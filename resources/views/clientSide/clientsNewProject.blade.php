@@ -13,14 +13,38 @@
             <div class="tab-pane fade show active col-md-offset-4" id="ongoingList" role="tabpanel" aria-labelledby="home-tab">
               <div class="row justify-content-center">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-offset-4" style="margin-top: 12%;">
+                  @if ($notification->data["flag"]=="started")
                   <div class="card justify-content-center">
                     <div class="card-header" style="background-color: #e2e6ea;">
-                      <h4>{{$project->project_name}}</h4>
+                      <h4>Admin started the Project</h4>
                       
                     </div>
                     <div class="collapse show" id="mycard-collapse">
                       <div class="card-body">
-                        <h4><span class="badge badge-secondary">{{$project->id}}</span></h4>
+                        <h4><span class="badge badge-secondary">{{$project->id}}</span>{{"  -  ".$project->project_name}}</h4
+                        <h4></h4
+                        <div class="form-row">
+                          <div class="col-md-6"><strong>Started: {{$project->project_start_date}}</strong></div>
+                          <div class="col-md-6"><strong>Engineer: {{$project->project_engineer}}</strong></div>
+                          <div class="col-md-6"><strong>Target date to be finished: {{$project->project_end_date}}</strong></div>
+                          <div class="col-md-6"><strong>Location: {{$project->project_location}}</strong></div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Request Equipment</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#declineModal">Decline</button>
+                      </div>
+                    </div>
+                  @elseif($notification->data["flag"] == "new project")
+                  <div class="card justify-content-center">
+                    <div class="card-header" style="background-color: #e2e6ea;">
+                      <h4>New Project From Admin</h4>
+                      
+                    </div>
+                    <div class="collapse show" id="mycard-collapse">
+                      <div class="card-body">
+                        <h4><span class="badge badge-secondary">{{$project->id}}</span>{{"  -  ".$project->project_name}}</h4
+                        <h4></h4
                         <div class="form-row">
                           <div class="col-md-6"><strong>Started: {{$project->project_start_date}}</strong></div>
                           <div class="col-md-6"><strong>Engineer: {{$project->project_engineer}}</strong></div>
@@ -33,6 +57,7 @@
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#declineModal">Decline</button>
                       </div>
                     </div>
+                  @endif
                   </div>                        
                 </div>
               </div>
@@ -111,12 +136,14 @@
       </div>
     </div>
   </div>
-  {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
   aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header" style="background-color:#e2e6ea;">
-          <h5 class="modal-title" id="myLargeModalLabel">Request Employees Needed</h5>
+          <h5 class="modal-title" id="myLargeModalLabel">Request Employees Needed for Project {{$project->id}} ( {{$project->project_name}})</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -159,7 +186,9 @@
         </div>
       </div>
     </div>
-  </div> --}}
+  </div>
+
+
 </div>
 
 <script>
@@ -175,7 +204,7 @@
         
         if (x < max_fields) {
             x++;
-            $(wrapper).append('<div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1" name="type[]"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2" name="quantity[]"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a>'); //add input box
+            $(wrapper).append('<section><div class="form-row"><div class="col form-group"><label for="exampleFormControlSelect1">Equipment type</label><select class="form-control" id="exampleFormControlSelect1" name="type[]"><option>Truck</option><option>Backhoe</option><option>Crane</option><option>Loader</option><option>Forklift</option></select></div><div class="col form-group"><label for="exampleFormControlSelect2">Quantity</label><select class="form-control id="exampleFormControlSelect2" name="quantity[]"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><a href="#" class="delete btn btn-danger">Delete</a></section>'); //add input box
             var type = $("#exampleFormControlSelect1 option:selected").text();
             var qty = $("#exampleFormControlSelect2 option:selected").text();
             console.log(type, qty);
@@ -183,11 +212,11 @@
             alert('Maximum of 5 Requests only')
         }
     });
-    $
+    
 
     $(wrapper).on("click", ".delete", function(e) {
         e.preventDefault();
-        $(this).parent('form').remove();
+        $(this).parent('section').remove();
         x--;
     });
 });

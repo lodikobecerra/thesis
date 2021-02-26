@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewProject;
 use App\Notifications\Response;
 use App\Notifications\AcceptProject;
+use App\Notifications\ProjectStarted;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
@@ -51,8 +52,9 @@ class ProjectController extends Controller
 		$message = "Admin has given you a project";
 		$project_id = $project->id;
 		$creator = User::findOrFail(Auth::id());
+		$flag = "new project";
 		
-		Notification::send($user, new NewProject($message,$project_id,$creator->firstName));
+		Notification::send($user, new NewProject($message,$project_id,$creator->firstName,$flag));
 	   	return back()-> with('message','Project Saved');
 	}
 
@@ -119,7 +121,7 @@ class ProjectController extends Controller
 
 		if($notification){
 			$notification->markAsRead();
-			return view('clientSide.clientsNewProject',[
+			return view('clientSide.clientsNewProject',compact('notification'),[
 				"project" => $project]);
 		}
 	}
@@ -128,14 +130,14 @@ class ProjectController extends Controller
 	public function employeeRequest(Request $request){
 		$count = count($request['type']);
 		
-			for($i=0; $i<$count; $i++)
-				{
-					RequestEmployee::create([
-						'type' => $request['type'],
-						'quantity' => $request['quantity'],
-					]);
-				}
-			return back();
+		for($i=0; $i<$count; $i++)
+			{
+				$requested = RequestEmployee::create([
+					'type' => $request['type'],
+					'quantity' => $request['quantity'],
+				]);
+			}
+		return back();
 	}
 
 
@@ -170,21 +172,31 @@ class ProjectController extends Controller
 	}
 
 	
-	public function engrResponse($notification_id){
+	public function engrResponse($notification_id,$project_id){
+		$project = Project::find($project_id);
 		$notification = Auth::user()->notifications()->find($notification_id);
 		// dd($notification);
 		if($notification){
 			$notification->markAsRead();
-			return view('project module.engrResponse', compact('notification'));
+			return view('project module.engrResponse', compact('notification'),[
+				'projects' => $project,
+			]);
 		}
 	}
 
 
-	public function startProject($project_id){
+	public function startProject($notification_id,$project_id){
 		$project= Project::find($project_id);
 		$project->update(['project_status'=>'ongoing']);
-		// dd($project->project_status);
+
+		$project_name = $project->project_name;
+		$project_id = $project->id;
+		$creator = User::findorfail(Auth::id());
+		$message = "Admin started the project #".$project_id.", ".$project_name;
+		$flag = "started";
+		$user = User::where('id',$project->project_engineer_id)->get();
 		
+		Notification::send($user, new ProjectStarted($project_name,$project_id,$creator->firstName." ".$creator->lastName,$message,$flag));
 		return view('project module.ongoing',[
 			'projects' => Project::where('project_status','ongoing')->get(), 'users'=> User::where('user_type','Engineer')->get(),
 		]);

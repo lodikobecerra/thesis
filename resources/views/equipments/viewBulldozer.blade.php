@@ -102,8 +102,8 @@
 									<div class="form-group col-md-4">
 										<label>Equipment Type</label>
 										<select class="form-control" name="equipment_type" required>
+											<option value=""disabled selected>Equipment type</option>
 											@foreach ($equipmentType as $type)
-												<option value=""disabled selected>Equipment type</option>
 												<option>{{$type->type}}</option>
 											@endforeach
 										</select>

@@ -2,30 +2,26 @@
 
 namespace App\Notifications;
 
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewProject extends Notification
+class ProjectStarted extends Notification
 {
     use Queueable;
-
-    protected $message;
-    protected $project_id;
-    protected $creator;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($message,$project_id,$creator,$flag)
+    public function __construct($project_name,$project_id,$creator,$message,$flag)
     {
-        $this->message = $message;
+        $this->project_name = $project_name;
         $this->project_id = $project_id;
         $this->creator = $creator;
+        $this->message = $message;
         $this->flag = $flag;
     }
 
@@ -40,19 +36,20 @@ class NewProject extends Notification
         return ['database'];
     }
 
-     /**
-     * Get the array representation of the notification.
+    /**
+     * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toDatabase($notifiable)
     {
         return [
-             'data'=> $this->message,
-             'project_id' => $this->project_id,
-             'creator' => $this->creator,
-             'flag' => $this->flag,
+            'project_name' => $this->project_name,
+            'project_id' => $this->project_id,
+            'creator' => $this->creator,
+            'data' => $this->message,
+            'flag' => $this->flag,
         ];
     }
 

@@ -37,7 +37,7 @@
                     {{ $notification->data['project_id'] }}" 
                     style="color: {{$notification->unread() ? 'blue' : 'black'}}">{{$notification->data['data']}}</a>
                   @else
-                    <a href="/engrResponse/{{ $notification->id }}" 
+                    <a href="/engrResponse/{{ $notification->id }}/{{ $notification->data['project_id_accepted'] }}" 
                     style="color: {{$notification->unread() ? 'blue' : 'black'}}">{{$notification->data['data']}}</a>
                   @endif
                 </li>
